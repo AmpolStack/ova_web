@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+    border: none;
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    font-family: "Rokkitt", sans-serif;
+}
+button{
+    cursor: pointer;
+}
+
+app-root{
+    margin: auto;
+    min-height: 100dvh;
+    max-width: 130rem;
+    display: grid;
+    grid-template-areas: "header"
+    "main"
+    "footer";
+    grid-template-rows: minmax(1rem, 8vh) 1fr minmax(1rem, 8vh)
+}

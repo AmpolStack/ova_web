@@ -1,0 +1,55 @@
+/* HEADER STYLES */
+header{
+    grid-area: header;
+    /* background-color: #444; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* padding: 4rem; */
+    background-color: #ffc400;
+    box-shadow: 0 0 1rem 0 #4447;
+    /* border: 2px solid red; */
+
+}
+header>*{
+    /* padding: 1rem; */
+    flex: 1 1 0;
+    text-align: center;
+    /* border: 2px solid red; */
+}
+h1{
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 900;
+}
+p{
+    font-weight: 900;
+    font-size: 2rem;
+    color: #555;
+}
+h1,p{
+    font-size: 2.8vh;
+}
+@media screen and (min-width:1400px) {
+    h1,p{
+        font-size: 3.3vh;
+    }
+}
+/* FOOTER STYLES */
+footer{
+    background-color: #555;
+    color: #ffc400;
+    font-weight: 700;
+    align-content: center;
+    text-align: center;
+    font-size: 1.3vh;
+}
+/* Main styles */
+.router-container{
+    grid-area: main;
+    position: relative;
+}
