@@ -1,0 +1,268 @@
+section{
+    /* border: 2px solid #222; */
+    --color-primary: #946464;
+    height: 100%;
+    position: relative;
+    background-color: var(--color-primary);
+    display:flex;
+    justify-content: center;
+    align-content: center;
+    align-items: start;
+    padding: 6rem;
+    background-image: 
+    radial-gradient(circle, #0000001a 1px, transparent 2px),
+    radial-gradient(circle, #0000001a 1px, transparent 2px);
+background-size: 10px 10px, 20px 20px;
+background-position: 0 0, 5px 5px;
+}
+.quizz-section{
+    flex: 1 1 0;
+    display: grid;
+    max-width: 60rem;
+    aspect-ratio: 3/2;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 10fr;
+    grid-template-areas: "aside noting"
+    "main main";
+    /* overflow:hidden; */
+    /* gap: 2rem; */
+}
+.quizz-section>*{
+    border: 2px solid #444444c4;
+    background-color: #aa7d508f;
+}
+.quizz-section>aside{
+    grid-area: aside;
+    border-bottom:none;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+}
+.quizz-section>main{
+    grid-area: main;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+    padding: 4em;
+    gap: .8rem;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+}
+fieldset{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    /* align-items: center; */
+    justify-content: center;
+    gap: .5rem;
+}
+input{
+    text-wrap:wrap;
+    border-radius: 3rem;
+    padding: .5rem;
+    max-width: 100%;
+    text-align: center;
+    text-transform: capitalize;
+    transition: background-color .5s, color .5s;
+    /* max-width: 20rem; */
+
+}
+fieldset>input{
+    background-color: #fff;
+    color:#444;
+    cursor: pointer;
+    transition: transform .5s, background-color .5s, color .5s;
+}
+fieldset>input:hover{
+    transform: scale(1.05);
+}
+aside>button:hover, aside>button:focus{
+    background-color:var(--color-primary);
+    color: #fff;
+    cursor: pointer;
+    /* border: 2px solid #fff; */
+}
+.button-container>input[type="button"]{
+    font-weight: 800;
+    color: #fff;
+    background-color: #444;
+    text-transform: uppercase;
+    padding: .5rem 1rem;
+}
+.button-container>input[type="button"]:hover, .button-container>input[type="button"]:focus{
+    background-color: #fff;
+    color: var(--color-primary);
+    cursor: pointer;
+
+}
+form > .button-container >.no-click{
+    pointer-events: none;
+    background-color:#888;
+    color: #444;
+}
+.button-selected{
+    transform: scale(1.05);
+}
+fieldset>.Correct{
+    background-color: #7ebb66;
+    color: #fff ;
+}
+fieldset>.Incorrect{
+    background-color: #b43f32;
+    color: #fff;
+}
+fieldset>.button-selected{
+    background-color: var(--color-primary);
+    color: #fff;
+}
+h3{
+    font-weight:4300;
+    color: #fff;
+    font-size: 100%;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+legend{
+    text-align: center;
+    color: #444;
+    font-size: 200%;
+}
+
+aside{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2% 10%;
+    align-items: center;
+    align-content: center;
+    color: #fff;
+}
+aside>*{
+    /* flex: 1 1 0; */
+    text-align: center;
+    /* border: 2px solid red; */
+}
+aside>button{
+    box-sizing: border-box;
+    border-radius: 8px;
+    border: 2px solid #fff;
+    max-width: 7rem;
+    padding: 2.5% 3%;
+    color:var(--color-primary);
+    transition: background-color .5s, color .5s;
+}
+.intro{
+    height: 100%;
+    width: 100%;
+    align-content: center;
+}
+.intro-image{
+    position: absolute;
+    inset: 0 0 0 0;
+    margin: auto;
+    /* border: 2px solid #222; */
+    align-content: center;
+    opacity: 40%;
+    border-radius: 100%;
+    aspect-ratio: 1/1;
+    max-width: 80%;
+    max-height: 80%;
+    background-color: #7ebb66;
+    filter: sepia();
+    transition: all .5s;
+    z-index: 1;
+}
+.intro-image>img{
+    max-width: 60%;
+    display: block;
+    margin: auto;
+}
+.intro-content{
+    display: block;
+    margin:auto;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    z-index: 2;
+}
+.button-init{
+    background-color: #fff;
+    padding: .5rem 1rem;
+    border-radius: 4px;
+    font-weight: 900;
+    transition: border .5s, background-color .5s, color .5s;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+    max-width: 90%;
+    text-align: center;
+    font-size: 60%
+    /* border: 2px solid #222; */
+    /* clip-path: inset(0 25% 0 25%);  */
+}
+p{
+    color: #fff;
+    max-width: 20rem;
+    /* font-size: small; */
+    font-size: 150%;
+    text-align: center;
+}
+h4{
+    color: #fff;
+    font-size: 150%;
+    /* font-size: x-large; */
+}
+h2{
+    color:  #ffc400;
+    font-weight: 900;
+    text-wrap: wrap;
+    max-width: 50rem;
+    font-size: 190%;
+}
+.button-init:hover,.button-init:focus{
+    background-color: var(--color-primary);
+    border-color: #fff;
+    color: #fff;
+}
+
+@media screen and (max-width:700px){
+    section{
+        padding: 6rem 5%;
+    }
+    .quizz-section{
+        grid-template-columns: 3fr 1fr;
+    }
+    aside{
+        padding: 1rem;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+}
+@media screen and (max-width:350px) {
+    .button-init{
+        padding: .3rem;
+    }
+    h4,p{
+        font-size: 70%;
+    }
+    h2{
+        font-size: 90%;
+    }
+}
+

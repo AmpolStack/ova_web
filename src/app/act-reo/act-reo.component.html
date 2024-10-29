@@ -1,20 +1,38 @@
 <section>
-        <div class="section">
+        <div class="quizz-section" *ngIf="isInit" ngClass="{'fade-out' : IsInit}">
             <aside>
-                <p>Puntaje: 0</p>
+                <button routerLink="">ir al inicio</button>
+                <p>Puntaje: {{this.score}}<p>
             </aside>
             <main>
-                <h3>Pregunta: 1/10</h3>
+                <h3>Pregunta: {{currentQuestion+1}}/10</h3>
                 <form>
                     <fieldset>
-                        <legend>¿La revista Rastros Rostros es una revista?</legend>
-                        <input type="button" value="A">
-                        <input type="button" value="A">
-                        <input type="button" value="A">
-                        <input type="button" value="A">
-
+                        <legend>{{Questions[currentQuestion].question}}</legend>
+                        <ng-container *ngFor="let item of Questions[currentQuestion].responses; let i = index">
+                        <input [ngClass]="{ 'button-selected': currentResponseIndex == i && inStatusChange == false, 
+                        'Correct': inStatusChange == true && i == Questions[currentQuestion].answer,
+                        'Incorrect': i != Questions[currentQuestion].answer &&  inStatusChange == true && currentResponseIndex == i}"
+                        type="button" [value]="item" (click)="changeCurrentResponseIndex(i)">
+                        </ng-container>
                     </fieldset>
+                    <div class="button-container">
+                        <input type="button" value="Siguiente" (click)="nextQuestion()" [ngClass]="{'no-click' : inStatusChange || currentResponseIndex==null}">
+                    </div>
                 </form>
             </main>
         </div>
+        <div  *ngIf="!isInit" class="intro">
+            <div class="intro-content">
+                <h4>QUIZZ</h4>
+                <h2>REVISTA TRIVIA</h2>
+                <p>Comprensión, avance y estado de la educación y la pedagogía</p>
+                <button type="button" class="button-init" (click)="changeIsInit()">EMPEZAR</button>
+            </div>
+            <div class="intro-image">
+                <img src="../../assets/images/chiguiro.svg" alt="imagen de chiguiro">
+            </div>
+            
+        </div>
 </section>
+

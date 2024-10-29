@@ -5,7 +5,8 @@ import { ActReoComponent } from './act-reo/act-reo.component';
 
 const routes: Routes = [
   {path:'', component:MenuComponent},
-  {path:'REO', component:ActReoComponent}  
+  {path:'REO', component:ActReoComponent},
+  {path: 'RDM', component:ActReoComponent}
 ];
 
 @NgModule({

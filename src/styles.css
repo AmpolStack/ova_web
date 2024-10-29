@@ -23,3 +23,6 @@ app-root{
     "footer";
     grid-template-rows: minmax(1rem, 8vh) 1fr minmax(1rem, 8vh)
 }
+img{
+    max-width: 100%;
+}
