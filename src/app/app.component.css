@@ -10,7 +10,8 @@ header{
     align-items: center;
     text-align: center;
     /* padding: 4rem; */
-    background-color: #ffc400;
+    /* background-color: #ffc400; */
+    background-color:  #62429e;
     box-shadow: 0 0 1rem 0 #4447;
     /* border: 2px solid red; */
 
@@ -23,6 +24,7 @@ header>*{
 }
 h1{
     color: #fff;
+    color: #ffc400;
     text-transform: uppercase;
     font-weight: 900;
 }

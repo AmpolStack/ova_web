@@ -1,1 +1,31 @@
-<p>act-rdm works!</p>
+<div class="bk-properties" >
+    <div class="logo-container" *ngIf="isExecuted==true">
+        <div class="logo-image">
+            <img src="../../assets/images/millonario.svg" alt="">
+        </div>
+        <h2>RASTRO DEL MILLON</h2>
+        <button type="button" (click)="exe()">EMPEZAR</button>
+    </div>
+    <main *ngIf="isExecuted==false">
+        <div class="header-main">
+            <h3>Puntaje: {{score}}</h3>
+        </div>
+        <aside>
+            <div  [ngClass]="{'isCompleted' : score>=(this.Questions.length-i)*100}" class="score-item" *ngFor="let item of this.Questions; let i = index">
+                <p>{{(this.Questions.length-i)*100}}</p>
+            </div>
+        </aside>
+        <form>
+            <h3>Pregunta {{currentQuestionIndex+1}}/{{this.Questions.length}}</h3>
+            <p>{{Questions[currentQuestionIndex].question}}</p>
+            <fieldset>
+                <ng-container *ngFor="let item of this.Questions[currentQuestionIndex].responses; let i = index">
+                    <input [ngClass]="{'isSelected': i==currentResponseIndex,
+                    'isCorrect' : i==this.Questions[currentQuestionIndex].answer && isInStatusChange,
+                    'isIncorrect' : isInStatusChange && i==currentResponseIndex}" class="button-item" type="button" [value]="item" (click)="this.changesCurrentResponseIndex(i)">
+                </ng-container>
+            </fieldset>
+            <input [ngClass]="{'isInactive' : currentResponseIndex==null}" type="button" value="Siguiente" class="submit-button" (click)="changesCurrentQuestionIndex()">
+        </form>
+    </main>
+</div>
