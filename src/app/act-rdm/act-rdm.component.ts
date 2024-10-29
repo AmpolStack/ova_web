@@ -7,7 +7,7 @@ import { IQuestionHandler, Question, QuestionsHandlerService } from '../question
   styleUrls: ['./act-rdm.component.css']
 })
 export class ActRdmComponent {
-  public isExecuted : boolean = false;
+  public isInit : boolean = false;
   public currentQuestionIndex : number = 0;
   public currentResponseIndex : number | null = null;
   public score : number=0;
@@ -81,8 +81,8 @@ export class ActRdmComponent {
     this._questionHandler = questionHandlerService;
   }
 
-  public exe(){
-    this.isExecuted = true;
+  public Init(){
+    this.isInit = true;
   }
   public changesCurrentQuestionIndex(){
     if(this.currentQuestionIndex>=this.Questions.length-1){

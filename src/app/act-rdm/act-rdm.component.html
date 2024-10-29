@@ -1,17 +1,17 @@
 <div class="bk-properties" >
-    <div class="logo-container" *ngIf="isExecuted==true">
+    <div class="logo-container" *ngIf="isInit==false">
         <div class="logo-image">
             <img src="../../assets/images/millonario.svg" alt="">
         </div>
         <h2>RASTRO DEL MILLON</h2>
-        <button type="button" (click)="exe()">EMPEZAR</button>
+        <button type="button" (click)="Init()">EMPEZAR</button>
     </div>
-    <main *ngIf="isExecuted==false">
+    <main *ngIf="isInit==true">
         <div class="header-main">
             <h3>Puntaje: {{score}}</h3>
         </div>
         <aside>
-            <div  [ngClass]="{'isCompleted' : score>=(this.Questions.length-i)*100}" class="score-item" *ngFor="let item of this.Questions; let i = index">
+            <div [ngClass]="{'isCompleted' : score>=(this.Questions.length-i)*100}" class="score-item" *ngFor="let item of this.Questions; let i = index">
                 <p>{{(this.Questions.length-i)*100}}</p>
             </div>
         </aside>

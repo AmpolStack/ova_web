@@ -7,14 +7,15 @@ import { MenuComponent } from './menu/menu.component';
 import { CardComponent } from './menu/card/card.component';
 import { ActReoComponent } from './act-reo/act-reo.component';
 import { ActRdmComponent } from './act-rdm/act-rdm.component';
-
+import { ActRnrComponent } from './act-rnr/act-rnr.component';
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
     CardComponent,
     ActReoComponent,
-    ActRdmComponent
+    ActRdmComponent,
+    ActRnrComponent
   ],
   imports: [
     BrowserModule,

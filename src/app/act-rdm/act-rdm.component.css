@@ -117,9 +117,7 @@ form{
     padding: 1rem;
     gap: 2rem;
 }
-form>*{
-    /* background-color: #2224; */
-}
+
 aside{
     padding: 2rem 2rem;
     max-height: 30rem;
@@ -198,6 +196,21 @@ h3{
         transform: rotate(360deg);
     }
 }
-@media screen and (max-width:900px) {
-    
+@media screen and (max-width:700px) {
+    main{
+        grid-template-areas: "header"
+        "aside"
+        "main";
+        grid-template-columns: 1fr;
+        grid-template-rows: min-content max-content 5fr;
+    }
+    aside{
+        flex-direction: row;
+        padding:4% 5%;
+    }
+    aside>div{
+        /* background-color: blanchedalmond; */
+        padding: 3%;
+        
+    }
 }
