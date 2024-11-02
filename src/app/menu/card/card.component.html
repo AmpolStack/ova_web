@@ -1,10 +1,8 @@
-<div class="top-container">
-    <div class="image-container">
+<h3>{{Activity?.Name}}</h3>
+<p>{{Activity?.Description}}</p>
+<div class="button-container">
+    <button  routerLink={{Activity?.UrlLink}}>{{number}}</button>
+    <!-- <div class="image-container">
         <img [src]="Activity?.UrlImage" alt="Logo del taller">
-    </div>
-    <h3>{{Activity?.Name}}</h3>
-    <p>{{Activity?.Description}}</p>
-</div>
-<div class="bottom-container">
-    <button routerLink={{Activity?.UrlLink}}>Ir al taller</button>
+    </div> -->
 </div>

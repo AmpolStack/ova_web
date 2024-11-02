@@ -1,4 +1,6 @@
 .bk-properties{
+    --color-primary: #ffc400;
+    --color-secondary :  #ec1557;
     background-color: #fac904;
     display: flex;
     flex-direction: column;
@@ -25,36 +27,38 @@
     grid-area: logo;
 }
 .logo-container>h2{
-    color: #fff;
-    text-shadow: 0 0 .2rem #222;
+    text-shadow: 0 0 .1rem #222;
     font-weight: 900;
     font-size:4em;
+    color: #444;
     text-align: center;
 }
 .logo-container>.logo-image{
     /* border: 2px solid red; */
     width:65%;
     max-width: 26rem;
+    opacity: 50%;
     /* border-radius: 100%; */
     overflow: hidden;
 }
 .logo-container>button{
     font-weight: 800;
-    background-color: #62429e;
+    background-color: var(--color-secondary);
     color: #fff;
     padding: 1% 3%;
     box-sizing: border-box;
-    border: 2px solid #62429e;
+    border: 2px solid var(--color-secondary);
     transition: background-color .5s, color .5s;
 }
 .logo-container>button:hover{
     background-color: #fff;
-    color: #62429e;
+    color: var(--color-secondary);
 }
 img{
     max-width: 100%;
     /* margin-top: 31rem; */
     z-index: 10;
+    /* opacity: 50%; */
     /* position: relative; */
     background-color: white;
     border-radius: 100%;
@@ -85,13 +89,14 @@ main{
 main>*{
     background-color: #fff;
     border-radius: 8px;
-    border: 2px solid #62429e;
+    border: 2px solid var(--color-secondary);
     box-sizing: border-box;
     box-shadow: 0 0 .4rem 0 #44444437;
     transition: all .8s;
 }
 main>.header-main{
     grid-area: header;
+    background-color: var(--color-secondary);
 }
 main>form{
     grid-area: main;
@@ -117,7 +122,6 @@ form{
     padding: 1rem;
     gap: 2rem;
 }
-
 aside{
     padding: 2rem 2rem;
     max-height: 30rem;
@@ -125,7 +129,7 @@ aside{
 }
 aside>div{
     /* background-color: #444; */
-    border: 2px solid #62429e;
+    border: 2px solid var(--color-secondary);
     flex: 1 1 0;
     width: 100%;
     align-content: center;
@@ -143,7 +147,7 @@ fieldset, p{
 }
 h3{
     font-size: 2rem;
-    color: #62429e;
+    color: var(--color-primary);
     font-weight: 800;
 }
 .button-item{
@@ -159,13 +163,13 @@ h3{
 }
 
 .submit-button{
-    background-color: #62429e;
+    background-color: var(--color-secondary);
     padding: .5rem 1.2rem;
     border-radius: 2px;
     color: #fff;
     font-weight: 900;
     box-sizing: border-box;
-    border:2px solid #62429e;
+    border:2px solid var(--color-secondary);
     transition: background-color .5s, color .5s;
 }
 .isInactive{
@@ -174,14 +178,14 @@ h3{
 }
 .submit-button:hover{
     background-color: #fff;
-    color: #62429e;
+    color:var(--color-secondary);
 }
 .isCompleted{
-    background-color: #62429e;
+    background-color:var(--color-secondary);
     color:#fff;
 }
 .isIncorrect{
-    background-color: #b43f32;
+    background-color: #f56f60;
     color: #fff;
 }
 .isCorrect{

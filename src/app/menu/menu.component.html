@@ -1,4 +1,4 @@
 <main>
     <h2>Seleccione el Taller</h2>
-    <app-card class="card-container" *ngFor="let item of Activitys" [Activity]="item"></app-card>
+    <app-card class="card-container" *ngFor="let item of Activitys; let i = index" [Activity]="item" [number]="i+1"></app-card>
 </main>

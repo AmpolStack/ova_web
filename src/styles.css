@@ -5,9 +5,13 @@
     padding:0;
     box-sizing: border-box;
 }
+a{
+    text-decoration: none;
+}
 body{
     margin: 0;
     font-family: "Rokkitt", sans-serif;
+    position: relative;
 }
 button{
     cursor: pointer;
@@ -21,8 +25,63 @@ app-root{
     grid-template-areas: "header"
     "main"
     "footer";
-    grid-template-rows: minmax(1rem, 8vh) 1fr minmax(1rem, 8vh)
+    grid-template-rows:7rem 1fr minmax(1rem, 8vh)
 }
 img{
     max-width: 100%;
+}
+.cuat{
+    background-color:#ec1557;
+    width: 0;
+    height: 0;
+    position: fixed;
+    top: 0;
+    font-size: 0rem;
+    /* inset: 0 0 0 0; */
+    color: #fff;
+    text-align: center;
+    align-content: center;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    margin: auto;
+    z-index: 100;
+    pointer-events:none;
+    animation: transform 10s ease-in-out forwards;
+    touch-action: none;
+}
+.cuat::before{
+    content: "";
+    animation: loading 2s steps(4) infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+@keyframes transform {
+    0%,100% {
+        width: 0;
+        height: 0;
+        font-size: 0;
+
+    }
+    25%,50%,75% {
+        width: 100vw;
+        height: 100vh;
+        font-size: 10rem;
+
+        /* margin: 0; */
+    }
+}
+@keyframes loading {
+    0%, 100% {content:"";}
+    25% {content: ".";}
+    50% {content: "..";}
+    75% {content:"..."}
 }

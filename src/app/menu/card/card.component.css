@@ -1,55 +1,92 @@
 img{
     max-width: 100%;
-    filter: sepia(40%);
+    filter: sepia();
+    opacity: 0%;
+    /* filter: contrast(); */
 }
 .image-container{
     max-width: 40%;
 }
-
-/* TOP CONTAINER CONFIGURATIONS */
-.top-container>*{
-    display: block;
-    margin: .6rem auto;
-}
 h3{
-    font-weight: 900;
+    grid-area: title;
     color: #ffc400;
-    text-transform: uppercase;
-    text-align: center;
+    font-weight: 900;
+    text-align:center;
+    align-content: center;
+    padding: 1.5rem;
+    text-transform: capitalize;
+    /* font-size: 100%; */
 }
 p{
-    color: #555;
+    color: #fff;
     text-wrap:pretty;
-}
-/* BOTTOM CONTAINER CONFIGURATIONS */
-.bottom-container{
-    box-sizing: border-box;
-    padding: 1rem;
-    border-top: 4px solid #444;
-}
-button{
-    box-sizing: border-box;
-    background-color: #ffc400;
-    border: 2px solid #ffc400;
-    border-radius: 4px;
-    padding: .4rem 1rem;
-    color: #444;
+    grid-area: text;
+    padding: 2rem;
+    /* font-size: 60%; */
     font-weight: 700;
-    transition: background-color .5s, color .5s, transform .5s;
+    /* font-size: .6vmin; */
+    /* border: 2px solid #ec1557; */
+    /* text-align: center; */
+    align-content: center;
+    /* overflow: hidden; */
 }
-button:hover, button:focus{
-    background-color: #444;
-    color: #ffc400;
-    transform: scale(1.2);
+.button-container{
+    grid-area: image-button;
+    /* background-color:#ec1557; */
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: #fff;
+    /* color: transparent; */
+    position: relative;
+}
+.button-container>.image-container{
+    /* border: 2px solid #222; */
+    aspect-ratio: 1/1;
+    align-content: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: #fff;
+}
+.button-container>button:before{
+    content: "#";
+}
+.button-container>button:hover:before{
+    content: "Ir al taller #";
+}
+.button-container>button{
+    width: 100%;
+    height: 100%;
+    background-color: #ec1557;
+    color: #fff;
+    font-weight: 800;
+    cursor: pointer;
+    /* font-size: 1.2rem; */
+    transition: background-color 1s;
+}
+.button-container>button:hover{
+    background-color: #fff;
+    color: #ec1557;
 }
 
-@media screen and (max-width:600px) {
+@media screen and (max-width:800px) {
     .image-container{
         max-width: 25%;
     }
     p{
-        font-size: 1.8vmax;
+        font-size: 1.8vmin;
     }
-
-    
+    h3{
+        font-size: 2.5vmin;
+    }
+}
+@keyframes expandir {
+    100%{
+        height: 100vh;
+        width: 100vw;
+    }
 }

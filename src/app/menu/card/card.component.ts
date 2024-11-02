@@ -8,4 +8,9 @@ import { Activity } from '../menu.component';
 })
 export class CardComponent {
   @Input() Activity? : Activity;
+  @Input() number? : number;
+  public tomo : boolean = false;
+  public changeTomo(){
+    this.tomo = true;
+  }
 }

@@ -1,6 +1,7 @@
 section{
     /* border: 2px solid #222; */
-    --color-primary: #946464;
+    --color-primary: #ffc400;
+    --color-secondary :  #ec1557;
     height: 100%;
     position: relative;
     background-color: var(--color-primary);
@@ -18,8 +19,8 @@ background-position: 0 0, 5px 5px;
 .quizz-section{
     flex: 1 1 0;
     display: grid;
-    max-width: 60rem;
-    aspect-ratio: 3/2;
+    max-width: 40rem;
+    aspect-ratio: 2.5/2;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 10fr;
     grid-template-areas: "aside noting"
@@ -28,15 +29,20 @@ background-position: 0 0, 5px 5px;
     /* gap: 2rem; */
 }
 .quizz-section>*{
-    border: 2px solid #444444c4;
-    background-color: #aa7d508f;
+    /* border: 2px solid #444; */
+    background-color: #ec1557;
 }
 .quizz-section>aside{
     grid-area: aside;
     border-bottom:none;
+    padding:2rem;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-
+    background-color: #d21850;
+    /* background-color: #444; */
+}
+.quizz-section>aside>*{
+    /* background-color:#7ebb66; */
 }
 .quizz-section>main{
     grid-area: main;
@@ -49,8 +55,16 @@ background-position: 0 0, 5px 5px;
     justify-content:center;
     padding: 4em;
     gap: .8rem;
+    /* background-color: #222; */
 }
-
+aside>.text-info::before{
+    content: "Puntaje: ";
+    /* color: #444; */
+    text-shadow: none;
+}
+/* aside>button{
+    padding:0 1rem;
+} */
 form{
     display: flex;
     flex-direction: column;
@@ -107,7 +121,7 @@ aside>button:hover, aside>button:focus{
 form > .button-container >.no-click{
     pointer-events: none;
     background-color:#888;
-    color: #444;
+    color: var(--color-primary);
 }
 .button-selected{
     transform: scale(1.05);
@@ -117,7 +131,7 @@ fieldset>.Correct{
     color: #fff ;
 }
 fieldset>.Incorrect{
-    background-color: #b43f32;
+    background-color: #f56f60;
     color: #fff;
 }
 fieldset>.button-selected{
@@ -135,17 +149,19 @@ h3{
 legend{
     text-align: center;
     color: #444;
+    font-weight: 700;
     font-size: 200%;
 }
 
 aside{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    padding: 2% 10%;
+    justify-content: space-evenly;
+    padding: 2% 15%;
     align-items: center;
     align-content: center;
     color: #fff;
+    gap: 1rem;
 }
 aside>*{
     /* flex: 1 1 0; */
@@ -157,7 +173,7 @@ aside>button{
     border-radius: 8px;
     border: 2px solid #fff;
     max-width: 7rem;
-    padding: 2.5% 3%;
+    padding: 2.5% 5%;
     color:var(--color-primary);
     transition: background-color .5s, color .5s;
 }
@@ -172,13 +188,12 @@ aside>button{
     margin: auto;
     /* border: 2px solid #222; */
     align-content: center;
-    opacity: 40%;
+    opacity: 60%;
     border-radius: 100%;
     aspect-ratio: 1/1;
     max-width: 80%;
     max-height: 80%;
-    background-color: #7ebb66;
-    filter: sepia();
+    background-color:#ec1557;
     transition: all .5s;
     z-index: 1;
 }
@@ -186,6 +201,9 @@ aside>button{
     max-width: 60%;
     display: block;
     margin: auto;
+    opacity: 40%;
+    filter:grayscale();
+    animation: opacityChanges 4s ease-in-out infinite;
 }
 .intro-content{
     display: block;
@@ -207,8 +225,8 @@ aside>button{
     border-radius: 4px;
     font-weight: 900;
     transition: border .5s, background-color .5s, color .5s;
-    color: var(--color-primary);
-    border: 2px solid var(--color-primary);
+    color: var(--color-secondary);
+    border: 2px solid var(--color-secondary);
     max-width: 90%;
     text-align: center;
     font-size: 60%
@@ -217,25 +235,32 @@ aside>button{
 }
 p{
     color: #fff;
+    font-weight: 800;
+    padding: .5rem 1rem;
+    border-radius:6px;
     max-width: 20rem;
+    text-shadow: 0 0 .1rem #222;
     /* font-size: small; */
     font-size: 150%;
     text-align: center;
 }
 h4{
-    color: #fff;
-    font-size: 150%;
+    color: #444;
+    font-weight: 900;
+    font-size: 190%;
+    text-shadow: 0 0 .09rem #222;
     /* font-size: x-large; */
 }
 h2{
-    color:  #ffc400;
+    color:var(--color-primary);
+    text-shadow: 0 0 .1rem #222;
     font-weight: 900;
     text-wrap: wrap;
     max-width: 50rem;
     font-size: 190%;
 }
 .button-init:hover,.button-init:focus{
-    background-color: var(--color-primary);
+    background-color: var(--color-secondary);
     border-color: #fff;
     color: #fff;
 }
@@ -245,7 +270,7 @@ h2{
         padding: 6rem 5%;
     }
     .quizz-section{
-        grid-template-columns: 3fr 1fr;
+        grid-template-columns: 5fr 2fr;
     }
     aside{
         padding: 1rem;
@@ -254,15 +279,26 @@ h2{
     }
     
 }
-@media screen and (max-width:350px) {
+@media screen and (max-width:550px) {
     .button-init{
         padding: .3rem;
     }
-    h4,p{
-        font-size: 70%;
+    h4{
+        font-size: 120% !important;
+    }
+    p{
+        font-size: 80% !important;
     }
     h2{
-        font-size: 90%;
+        font-size: 140% !important;
     }
 }
 
+@keyframes opacityChanges {
+    0%,100%{
+        opacity: 0%;
+    }
+    50%{
+        opacity: 40%;
+    }
+}

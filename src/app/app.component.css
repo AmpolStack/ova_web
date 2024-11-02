@@ -23,7 +23,7 @@ header>:first-child{
 }
 header>:last-child{
     /* flex: 2 2 0; */
-    /* aspect-ratio: 2/1; */
+    aspect-ratio: 2/1;
 }
 header>*{
     align-content: center;
@@ -32,7 +32,7 @@ header>*{
     /* flex: 1 1 0; */
     text-align: center;
     height: 100%;
-    border: 2px solid #555;
+    /* border: 2px solid #555; */
 }
 img{
     max-width: 85%;
@@ -75,7 +75,7 @@ p{
         
     }
     header>:last-child{
-        aspect-ratio: 1/1;
+        aspect-ratio: 1.5/1;
     }
     header{
         padding: 0;

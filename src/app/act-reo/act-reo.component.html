@@ -1,8 +1,8 @@
 <section>
         <div class="quizz-section" *ngIf="isInit" ngClass="{'fade-out' : IsInit}">
             <aside>
-                <button routerLink="">ir al inicio</button>
-                <p>Puntaje: {{this.score}}<p>
+                <!-- <button routerLink="">ir al inicio</button> -->
+                <h2 class="text-info">{{this.score}}</h2>
             </aside>
             <main>
                 <h3>Pregunta: {{currentQuestion+1}}/10</h3>
@@ -22,7 +22,7 @@
                 </form>
             </main>
         </div>
-        <div  *ngIf="!isInit" class="intro">
+        <div *ngIf="!isInit" class="intro">
             <div class="intro-content">
                 <h4>QUIZZ</h4>
                 <h2>REVISTA TRIVIA</h2>
@@ -32,7 +32,6 @@
             <div class="intro-image">
                 <img src="../../assets/images/chiguiro.svg" alt="imagen de chiguiro">
             </div>
-            
         </div>
 </section>
 
