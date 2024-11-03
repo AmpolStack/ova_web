@@ -1,0 +1,132 @@
+.container-all{
+    background-color:  #5467e6;
+    width: 100%;
+    height: 100%;
+    padding: 3rem;
+    position: relative;
+}
+.container-all>aside{
+    /* position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto; */
+    width: 100%;
+    height: 100%;
+    /* background-color: #222; */
+    border: 6px solid #222;
+    display: grid;
+    grid-template-rows: repeat(3,1fr);
+    grid-template-columns: repeat(5,1fr);
+    gap: 2rem;
+    max-height: 80rem;
+
+}
+.image{
+    border: 2px solid #222;
+    align-content: center;
+    position: relative;
+}
+.image>img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    filter: sepia();
+    /* background-color: #222; */
+    animation: ALG-translatePosition 3s ease-in-out infinite;
+}
+.fish{
+    max-width: 90%;
+}
+.fish-1{
+    grid-row: 1;
+    grid-column: 3;
+}
+.fish-1>img{
+    rotate:15deg;
+}
+.fish-2{
+    grid-row: 2;
+    grid-column: 1;
+}
+.fish-2>img{
+    rotate: -20deg;
+}
+.fish-3{
+    grid-row: 3;
+    grid-column: 1;
+}
+.fish-3>img{
+    rotate: 10deg;
+}
+.bubble>img{
+    max-width: 80%;
+}
+.bubble-1{
+    grid-column: 5;
+    grid-row: 1;
+}
+.bubble-2{
+    grid-column: 2;
+    grid-row: 3;
+}
+.bubble-2>img{
+    rotate: 145deg;
+    /* align-content: start; */
+}
+.bubble-3{
+    grid-column: 4;
+    grid-row: 2;
+}
+.bubble-3>img{
+    rotate: 125deg;
+}
+.plant-1{
+    grid-row: 3;
+    grid-column: 2;
+}
+.plant-2{
+    grid-row: 3;
+    grid-column: 5;
+}
+.cofre{
+    grid-row: 3;
+    grid-column: 4;
+}
+.triangle{
+    grid-column: 1/6;
+    grid-row: 1/4;
+    /* max-width: none; */
+    /* max-height: 100%; */
+}
+.triangle>img{
+    rotate: 255deg;
+    max-width: 100%;
+    animation: TR-translatePosition 5s ease-in-out infinite;
+
+}
+@keyframes TR-translatePosition {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(30px); } /* El objeto baja 200px */
+    100% { transform: translateX(0); } /* Regresa a la posición original */
+}
+@keyframes ALG-translatePosition {
+    0% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(15px) rotate(-5deg); }
+    50% { transform: translateY(30px) rotate(5deg); }
+    75% { transform: translateY(15px) rotate(-5deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}
+@keyframes FS-translatePosition {
+    0% { transform: translateY(0) rotate(2deg); }
+    25% { transform: translateY(-10px) rotate(-2deg); }
+    50% { transform: translateY(0) rotate(2deg); }
+    75% { transform: translateY(10px) rotate(-2deg); }
+    100% { transform: translateY(0) rotate(2deg); }  
+}

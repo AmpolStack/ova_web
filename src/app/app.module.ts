@@ -8,6 +8,7 @@ import { CardComponent } from './menu/card/card.component';
 import { ActReoComponent } from './act-reo/act-reo.component';
 import { ActRdmComponent } from './act-rdm/act-rdm.component';
 import { ActRnrComponent } from './act-rnr/act-rnr.component';
+import { ActPIComponent } from './act-pi/act-pi.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,7 +16,8 @@ import { ActRnrComponent } from './act-rnr/act-rnr.component';
     CardComponent,
     ActReoComponent,
     ActRdmComponent,
-    ActRnrComponent
+    ActRnrComponent,
+    ActPIComponent
   ],
   imports: [
     BrowserModule,
