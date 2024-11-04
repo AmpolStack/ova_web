@@ -1,6 +1,6 @@
 section{
     /* border: 2px solid #222; */
-    --color-primary: #ffc400;
+    --color-primary: #ffff;
     --color-secondary :  #ec1557;
     height: 100%;
     position: relative;
@@ -30,15 +30,15 @@ background-position: 0 0, 5px 5px;
 }
 .quizz-section>*{
     /* border: 2px solid #444; */
-    background-color: #ec1557;
+    background-color: #8b5c27ec;
 }
 .quizz-section>aside{
     grid-area: aside;
     border-bottom:none;
-    padding:2rem;
+    padding:0.5rem;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    background-color: #d21850;
+    background-color: #8b5d27;
     /* background-color: #444; */
 }
 .quizz-section>aside>*{
@@ -193,7 +193,7 @@ aside>button{
     aspect-ratio: 1/1;
     max-width: 80%;
     max-height: 80%;
-    background-color:#ec1557;
+    background-color:#fac904;
     transition: all .5s;
     z-index: 1;
 }
