@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./act-pi.component.css']
 })
 export class ActPIComponent {
-
+  public isActive : boolean = false;
+  public Activation(){
+    this.isActive = true;
+  }
 }

@@ -1,34 +1,33 @@
 <div class="container-all">
-    <aside class="image-container">
-        <div class="image triangle">
+    <aside>
+        <h2>PESCANDO IDEAS</h2>
+        <h3 *ngIf="isActive == true">Seleccione un item</h3>
+        <button *ngIf="isActive == false" type="button" (click)="Activation()">EMPEZAR</button>
+        <div class="container-image" [ngClass]="{'rotation-image' : isActive == true}">
             <img src="../../assets/images/triangle-strange.png" alt="">
+            <!-- <img src="../../assets/images/fish-cartoon.png" alt=""> -->
         </div>
-        <div class="image bubble bubble-1">
-            <img src="../../assets/images/bubble-gif1.gif" alt="" class="bubble">
-        </div>
-        <div class="image bubble bubble-2">
-            <img src="../../assets/images/bubble-gif1.gif" alt="" class="bubble">
-        </div>
-        <div class="image bubble bubble-3">
-            <img src="../../assets/images/bubble-gif1.gif" alt="" class="bubble">
-        </div>
-        <div class="image fish fish-1">
-            <img src="../../assets/images/fish-cartoon.png" alt="" class="bubble">
-        </div>
-        <div class="image fish fish-2">
-            <img src="../../assets/images/fish-cartoon.png" alt="" class="bubble">
-        </div>
-        <div class="image fish fish-3">
-            <img src="../../assets/images/fish-cartoon.png" alt="" class="bubble">
-        </div>
-        <div class="image plant plant-1">
-            <img src="../../assets/images/cfb0cef3-f97b-477a-8ec7-d02f3ae81962.png" alt="" class="bubble">
-        </div>
-        <div class="image plant plant-2">
-            <img src="../../assets/images/cfb0cef3-f97b-477a-8ec7-d02f3ae81962.png" alt="" class="bubble">
-        </div>
-        <div class="image cofre">
-            <img src="../../assets/images/tesoro.png" alt="" class="bubble">
+        <div class="bk-images">
+            <div class="division-bk">
+                <img class="cofre" src="../../assets/images/tesoro.png" alt="">
+                <img class="bubble bubble-1" src="../../assets/images/bubble-gif1.gif" alt="">
+                <img class="bubble bubble-2" src="../../assets/images/bubble-gif1.gif" alt="">
+                <img class="bubble bubble-3" src="../../assets/images/bubble-gif1.gif" alt="">
+                <img class="plant plant-1" src="../../assets/images/cfb0cef3-f97b-477a-8ec7-d02f3ae81962.png" alt="">
+                <img class="plant plant-2" src="../../assets/images/cfb0cef3-f97b-477a-8ec7-d02f3ae81962.png" alt="">
+                <img class="fish fish-1" src="../../assets/images/fish-cartoon.png" alt="">
+                <img class="fish fish-2" src="../../assets/images/fish-cartoon.png" alt="">
+                <img class="fish fish-3" src="../../assets/images/fish-cartoon.png" alt="">
+                <img src="../../assets/images/chiguiro.svg" alt="" class="chiro">
+            </div>
         </div>
     </aside>
+    <main *ngIf="isActive==true">
+        <button type="button" routerLink="Question/1">APRENDIZAJE</button>
+        <button type="button">ESCRITURA</button>
+        <button type="button">LECTURA</button>
+        <button type="button">CREATIVIDAD</button>
+        <button type="button">INVESTIGACIÓN</button>
+        <button type="button">EDUCACIÓN</button>
+    </main>
 </div>
