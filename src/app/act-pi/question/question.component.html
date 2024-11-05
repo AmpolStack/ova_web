@@ -1,5 +1,5 @@
 <div class="container-all">
-    <!-- <div class="container-images">
+    <div class="container-images">
             <div class="rock rock-1">
                 <img src="../../../assets/images/bedrock-1.png" alt="">
             </div>
@@ -12,18 +12,18 @@
             <div class="rock rock-4">
                 <img src="../../../assets/images/bedrock-4.png" alt="">
             </div>
-    </div> -->
+            <div class="submarine">
+                <img src="../../../assets/images/submarine.png" alt="">
+            </div>
+    </div>
     <form>
-        <h2>EDUCACIÓN</h2>
+        <h2>{{question?.name}}</h2>
         <legend>
-            :¿Què nombre aparece en el tìtulo del artìculo N 2 que habla sobre los aportes a la educaciòn bilingue?
+            {{question?.question}}
         </legend>
         <ul>
-            <li>
-                <button type="button">Stephen Kranser</button>
-            </li>
-            <li>
-                <button type="button">Julio Jaramillo</button>
+            <li *ngFor="let item of question?.responses; let i = index">
+                <button [ngClass]="{'isSelected' : i==this.indexResponse}" type="button" (click)="ChangeIndexResponse(i)">{{item}}</button>
             </li>
         </ul>
         <input class="submit-button" type="submit" value="SIGUIENTE">

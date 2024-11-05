@@ -1,1 +1,26 @@
-<p>act-rnr works!</p>
+<div class="container-all">
+    <aside>
+        <h2>ROOM 1</h2>
+        <div class="aside">
+            <ng-container *ngFor="let item of i; let j = index" >
+                <!-- <div [ngClass]="{'isActive' : this.index>=j+1, 'last' : this.index==j+1}" class="division"></div> -->
+            </ng-container>
+            <h4>1/4</h4>
+        </div>
+        <main class="image-container">
+            <div>
+                <img src="../../assets/images/portadas/Portada1.jpg" alt="">
+            </div>
+            <div>
+                <img src="../../assets/images/portadas/Portada1.jpg" alt="">
+            </div>
+        </main>
+        <div class="button button-previus">
+            <button>ANTERIOR</button>
+        </div>
+        <div class="button button-next">
+            <button>SIGUIENTE</button>
+        </div>
+    </aside>
+</div>
+<div class="container"></div>

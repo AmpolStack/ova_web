@@ -10,11 +10,11 @@ section{
     align-content: center;
     align-items: start;
     padding: 6rem;
-    background-image: 
+    /* background-image: 
     radial-gradient(circle, #0000001a 1px, transparent 2px),
     radial-gradient(circle, #0000001a 1px, transparent 2px);
 background-size: 10px 10px, 20px 20px;
-background-position: 0 0, 5px 5px;
+background-position: 0 0, 5px 5px; */
 }
 .quizz-section{
     flex: 1 1 0;
@@ -36,6 +36,8 @@ background-position: 0 0, 5px 5px;
     grid-area: aside;
     border-bottom:none;
     padding:2rem;
+    position: relative;
+    z-index: 2;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     background-color: #d21850;
@@ -54,6 +56,8 @@ background-position: 0 0, 5px 5px;
     align-items: center;
     justify-content:center;
     padding: 4em;
+    position: relative;
+    z-index: 2;
     gap: .8rem;
     /* background-color: #222; */
 }
@@ -302,3 +306,34 @@ h2{
         opacity: 40%;
     }
 }
+/* From Uiverse.io by elijahgummer */ 
+.aside {
+    width: 100%;
+    height: 100%;
+    background: lightblue;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .aside::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, #f2bb05 10%, transparent 20%),
+      radial-gradient(circle, transparent 10%, var(--color-primary) 20%);
+    background-size: 30px 30px; /* Adjust the size of the pattern */
+    animation: moveBackground 8s linear infinite; /* Adjust the animation duration and timing function */
+  }
+  
+  @keyframes moveBackground {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(20%, 20%);
+    }
+  }
+  

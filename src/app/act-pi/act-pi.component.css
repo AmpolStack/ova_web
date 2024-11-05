@@ -158,6 +158,13 @@ aside>button:hover, aside>button:focus{
     animation: TR-translatePosition-2 5s ease-in-out infinite;
 
 }
+
+.isCompleted{
+    background-color: #444 !important;
+    color: #fff !important;
+    pointer-events: none;
+}
+
 h3{
     color:#444;
     font-weight: 800;

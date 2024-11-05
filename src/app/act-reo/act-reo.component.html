@@ -1,4 +1,4 @@
-<section>
+<section class="aside">
         <div class="quizz-section" *ngIf="isInit" ngClass="{'fade-out' : IsInit}">
             <aside>
                 <!-- <button routerLink="">ir al inicio</button> -->
@@ -10,10 +10,10 @@
                     <fieldset>
                         <legend>{{Questions[currentQuestion].question}}</legend>
                         <ng-container *ngFor="let item of Questions[currentQuestion].responses; let i = index">
-                        <input [ngClass]="{ 'button-selected': currentResponseIndex == i && inStatusChange == false, 
-                        'Correct': inStatusChange == true && i == Questions[currentQuestion].answer,
-                        'Incorrect': i != Questions[currentQuestion].answer &&  inStatusChange == true && currentResponseIndex == i}"
-                        type="button" [value]="item" (click)="changeCurrentResponseIndex(i)">
+                            <input [ngClass]="{ 'button-selected': currentResponseIndex == i && inStatusChange == false, 
+                            'Correct': inStatusChange == true && i == Questions[currentQuestion].answer,
+                            'Incorrect': i != Questions[currentQuestion].answer &&  inStatusChange == true && currentResponseIndex == i}"
+                            type="button" [value]="item" (click)="changeCurrentResponseIndex(i)">
                         </ng-container>
                     </fieldset>
                     <div class="button-container">
