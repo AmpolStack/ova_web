@@ -9,7 +9,6 @@ import { ActReoComponent } from './act-reo/act-reo.component';
 import { ActRdmComponent } from './act-rdm/act-rdm.component';
 import { ActRnrComponent } from './act-rnr/act-rnr.component';
 import { ActPIComponent } from './act-pi/act-pi.component';
-import { QuestionComponent } from './act-pi/question/question.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,8 +17,7 @@ import { QuestionComponent } from './act-pi/question/question.component';
     ActReoComponent,
     ActRdmComponent,
     ActRnrComponent,
-    ActPIComponent,
-    QuestionComponent
+    ActPIComponent
   ],
   imports: [
     BrowserModule,

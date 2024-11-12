@@ -1,47 +1,45 @@
-img{
+
+img {
     max-width: 100%;
     filter: sepia();
-    opacity: 0%;
-    /* filter: contrast(); */
+    opacity: 0%
 }
-.image-container{
-    max-width: 40%;
+
+.image-container {
+    max-width: 40%
 }
-h3{
+
+h3,p {
+    align-content: center
+}
+
+h3 {
     grid-area: title;
     color: #ffc400;
     font-weight: 900;
-    text-align:center;
-    align-content: center;
+    text-align: center;
     padding: 1.5rem;
-    text-transform: capitalize;
-    /* font-size: 100%; */
+    text-transform: capitalize
 }
-p{
+
+p {
     color: #fff;
-    text-wrap:pretty;
+    text-wrap: pretty;
     grid-area: text;
     padding: 2rem;
-    /* font-size: 60%; */
-    font-weight: 700;
-    /* font-size: .6vmin; */
-    /* border: 2px solid #ec1557; */
-    /* text-align: center; */
-    align-content: center;
-    /* overflow: hidden; */
+    font-weight: 700
 }
-.button-container{
+
+.button-container {
     grid-area: image-button;
-    /* background-color:#ec1557; */
     width: 100%;
     height: 100%;
-    border: none;
+    border: 0;
     background-color: #fff;
-    /* color: transparent; */
-    position: relative;
+    position: relative
 }
-.button-container>.image-container{
-    /* border: 2px solid #222; */
+
+.button-container>.image-container {
     aspect-ratio: 1/1;
     align-content: center;
     position: absolute;
@@ -50,43 +48,49 @@ p{
     left: 0;
     right: 0;
     margin: auto;
-    background-color: #fff;
+    background-color: #fff
 }
-.button-container>button:before{
-    content: "#";
+
+.button-container>button:before {
+    content: "#"
 }
-.button-container>button:hover:before{
-    content: "Ir al taller #";
+
+.button-container>button:hover:before {
+    content: "Ir al taller #"
 }
-.button-container>button{
+
+.button-container>button {
     width: 100%;
     height: 100%;
     background-color: #ec1557;
     color: #fff;
     font-weight: 800;
     cursor: pointer;
-    /* font-size: 1.2rem; */
-    transition: background-color 1s;
+    transition: background-color 1s
 }
-.button-container>button:hover{
+
+.button-container>button:hover {
     background-color: #fff;
-    color: #ec1557;
+    color: #ec1557
 }
 
 @media screen and (max-width:800px) {
-    .image-container{
-        max-width: 25%;
+    .image-container {
+        max-width: 25%
     }
-    p{
-        font-size: 1.8vmin;
+
+    p {
+        font-size: 1.8vmin
     }
-    h3{
-        font-size: 2.5vmin;
+
+    h3 {
+        font-size: 2.5vmin
     }
 }
+/* 
 @keyframes expandir {
-    100%{
+    to {
         height: 100vh;
-        width: 100vw;
+        width: 100vw
     }
-}
+} */

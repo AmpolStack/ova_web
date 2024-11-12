@@ -1,43 +1,44 @@
-/* You can add global styles to this file, and also import other style files */
-*{
-    border: none;
-    margin: 0;
-    padding:0;
-    box-sizing: border-box;
-}
-a{
-    text-decoration: none;
-}
-body{
-    margin: 0;
-    font-family: "Rokkitt", sans-serif;
-    position: relative;
-}
-button{
-    cursor: pointer;
+*,body {
+    margin: 0
 }
 
-app-root{
+* {
+    border: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+a {
+    text-decoration: none
+}
+
+body {
+    font-family: "Rokkitt",sans-serif;
+    position: relative
+}
+
+button {
+    cursor: pointer
+}
+
+app-root {
     margin: auto;
     min-height: 100dvh;
-    max-width: 130rem;
     display: grid;
-    grid-template-areas: "header"
-    "main"
-    "footer";
-    grid-template-rows:7rem 1fr minmax(1rem, 8vh)
+    grid-template-areas: "header""main""footer";
+    grid-template-rows: 7rem 1fr minmax(1rem,8vh)
 }
-img{
-    max-width: 100%;
+
+img {
+    max-width: 100%
 }
-.cuat{
-    background-color:#ec1557;
+
+.cuat {
+    background-color: #ec1557;
     width: 0;
     height: 0;
     position: fixed;
-    top: 0;
-    font-size: 0rem;
-    /* inset: 0 0 0 0; */
+    font-size: 0;
     color: #fff;
     text-align: center;
     align-content: center;
@@ -47,13 +48,14 @@ img{
     top: 0;
     margin: auto;
     z-index: 100;
-    pointer-events:none;
+    pointer-events: none;
     animation: transform 10s ease-in-out forwards;
-    touch-action: none;
+    touch-action: none
 }
-.cuat::before{
+
+.cuat::before {
     content: "";
-    animation: loading 2s steps(4) infinite;
+    animation: loading 2s steps(4) infinite
 }
 
 @keyframes spin {

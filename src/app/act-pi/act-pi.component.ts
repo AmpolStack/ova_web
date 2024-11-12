@@ -1,38 +1,143 @@
-import { Component, Output } from '@angular/core';
-import { Question } from '../questions-handler.service';
+import { Component, OnDestroy, Output } from '@angular/core';
+import { Question, QuestionHandlerService } from '../question-handler.service';
 
 @Component({
   selector: 'app-act-pi',
   templateUrl: './act-pi.component.html',
   styleUrls: ['./act-pi.component.css']
 })
-export class ActPIComponent {
+export class ActPIComponent implements OnDestroy{
   public isActive : boolean = false;
-  public score : number = 200;
-  public QuestionIndex : number|null = null; 
-  public Questions : ExtendedQuestion[] = [
-    {question:'¿Cuàl es el nombre del Artìculo que està en sexta posiciòn?', responses:['La lectura y escritura desde la discapacidad intelectual leve. 2023-01-16','Las tic en la enseñanza de la lengua castellana a niños con discapacidad auditiva. null.', 'Procesos de enseñanza-aprendizaje en la universidad: perspectiva de los estudiantes. 2016-12-01'], answer:0, name:'APRENDIZAJE'},
-    {question:'¿Què gènero literario utilizan para aumentar la creatividad segùn el titulo del artìculo N 2?', responses:['Poetico', 'Narrativo', 'Dramatico'], answer:0, name:'CREATIVIDAD'},
-    {question:':¿Què nombre aparece en el tìtulo del artìculo N 2 que habla sobre los aportes a la educaciòn bilingue?', responses:['Stephen Krashen', 'Paulo Freire'], answer:0, name:'EDUCACIÓN'},
-    {question:'¿Quièn es el autor del artìculo que està ubicado en la septima posiciòn?', responses:['Orlando Parra','Laura Milena Arias','Gerardo Cardozo Rincòn'], answer:0,name:'LECTURA'},
-    {question:'¿ Cuàl es el fin del artìculo N 5 que se trabaja en la licenciatura de educaciòn infantil?', responses:['La busqueda de nuevas lògicas', 'El ser humano investigador','Vive la investigaciòn'], answer:0,name:'INVESTIGACIÓN'},
-    {question:'¿Cuàl es la pregunta que hacen en nombre del artìculo N 32?', responses:['¿Aprender a leer y a escribir?','¿Què es escribir?', '¿Què podemos aprender?'], answer:0, name:'ESCRITURA'}
-  ]
+  public readonly _questionHandlerService : QuestionHandlerService;
+  public showQuestion : boolean = false;
+  public objects: extendedQuestion[] = [
+    {
+      question: new Question(
+        "¿Cuál es el nombre del artículo que está en sexta posición?",
+        [
+          "La lectura y escritura desde la discapacidad intelectual leve. 2023-01-16",
+          "Las TIC en la enseñanza de la lengua castellana a niños con discapacidad auditiva. null.",
+          "Procesos de enseñanza-aprendizaje en la universidad: perspectiva de los estudiantes. 2016-12-01"
+        ],
+        0
+      ),
+      name: "APRENDIZAJE",
+      touched : false
+    },
+    {
+      question: new Question(
+        "¿Qué género literario utilizan para aumentar la creatividad según el título del artículo N 2?",
+        ["Poético", "Narrativo", "Dramático"],
+        0
+      ),
+      name: "CREATIVIDAD",
+      touched : false
 
+    },
+    {
+      question: new Question(
+        "¿Qué nombre aparece en el título del artículo N 2 que habla sobre los aportes a la educación bilingüe?",
+        ["Stephen Krashen", "Paulo Freire"],
+        0
+      ),
+      name: "EDUCACIÓN",
+      touched : false
+
+    },
+    {
+      question: new Question(
+        "¿Quién es el autor del artículo que está ubicado en la séptima posición?",
+        ["Orlando Parra", "Laura Milena Arias", "Gerardo Cardozo Rincón"],
+        0
+      ),
+      name: "LECTURA",
+      touched : false
+
+    },
+    {
+      question: new Question(
+        "¿Cuál es el fin del artículo N 5 que se trabaja en la licenciatura de educación infantil?",
+        [
+          "La búsqueda de nuevas lógicas",
+          "El ser humano investigador",
+          "Vive la investigación"
+        ],
+        0
+      ),
+      name: "INVESTIGACIÓN",
+      touched : false
+
+    },
+    {
+      question: new Question(
+        "¿Cuál es la pregunta que hacen en nombre del artículo N 32?",
+        ["¿Aprender a leer y a escribir?", "¿Qué es escribir?", "¿Qué podemos aprender?"],
+        0
+      ),
+      name: "ESCRITURA",
+      touched : false
+    }
+  ];
+
+  constructor(questionHandler : QuestionHandlerService){
+    this._questionHandlerService = questionHandler;
+    this.fillQuestionList();
+    this._questionHandlerService.setDelayTime(1200);
+    this._questionHandlerService.setScoreMultiplier(100);
+  }
+  
+  public fillQuestionList() {
+    this.objects.forEach(x =>{
+      this._questionHandlerService.addQuestion(x.question);
+    })
+  }
+
+  public touchButton(index : number){
+    this.objects[index].touched = true;
+  }
+
+  public isTouched(index : number){
+    return this.objects[index].touched;
+  }
   public Activation(){
     this.isActive = true;
   }
 
-  public ChangesQuestionIndex(num : number){
-    this.QuestionIndex=num;
+  public changesShowQuestion(shows : boolean){
+    this.showQuestion = shows;
   }
-  public addScore(isCorrect : boolean){
-    if(isCorrect){
-      this.score= this.score+100;
-    }
+
+  public getQuestionsName(){
+    let tempList: string[] = [];
+    this.objects.forEach(x =>{
+      tempList.push(x.name);
+    })
+    return tempList;
+  }
+
+  onSubmit(event: Event): void {
+    event.preventDefault(); // Evitar que el formulario se envíe si es necesario
+    this._questionHandlerService.executeChanges(false);
+    setTimeout(() => {
+      this.isActive = false;
+    this.showQuestion = false;
+    }, 1200);
+  }
+
+
+  ngOnDestroy(): void {
+      console.log("me destruií PI");
+      this._questionHandlerService.ngOnDestroy();
+      this.isActive = false;
+      this.showQuestion = false;
+      this.objects.forEach(x =>{
+        x.touched = false;
+      })
   }
 }
 
-export interface ExtendedQuestion extends Question {
-  name:string;
+export interface extendedQuestion{
+  question : Question,
+  name : string,
+  touched : boolean
 }

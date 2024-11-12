@@ -8,24 +8,26 @@
     </div>
     <main *ngIf="isInit==true">
         <div class="header-main">
-            <h3>Puntaje: {{score}}</h3>
+            <h3>Puntaje: {{this._questionHandlerService.getScore()}}</h3>
         </div>
         <aside>
-            <div [ngClass]="{'isCompleted' : score>=(this.Questions.length-i)*100}" class="score-item" *ngFor="let item of this.Questions; let i = index">
-                <p>{{(this.Questions.length-i)*100}}</p>
+            <div [ngClass]="{'isCompleted' : this._questionHandlerService.getScore()>=(this._questionHandlerService.getLenghtQuestions()-i)*100}" class="score-item" *ngFor="let item of [].constructor(this._questionHandlerService.getLenghtQuestions()); let i = index">
+                <p>{{(this._questionHandlerService.getLenghtQuestions()-i)*100}}</p>
             </div>
         </aside>
         <form>
-            <h3>Pregunta {{currentQuestionIndex+1}}/{{this.Questions.length}}</h3>
-            <p>{{Questions[currentQuestionIndex].question}}</p>
+            
+            <h3>Pregunta {{this._questionHandlerService.getCurrentQuestionIndex()+1}}/{{this._questionHandlerService.getLenghtQuestions()}}</h3>
+            <p>{{this._questionHandlerService.getCurrentQuestion().getQuestion()}}</p>
             <fieldset>
-                <ng-container *ngFor="let item of this.Questions[currentQuestionIndex].responses; let i = index">
-                    <input [ngClass]="{'isSelected': i==currentResponseIndex,
-                    'isCorrect' : i==this.Questions[currentQuestionIndex].answer && isInStatusChange,
-                    'isIncorrect' : isInStatusChange && i==currentResponseIndex}" class="button-item" type="button" [value]="item" (click)="this.changesCurrentResponseIndex(i)">
+                <ng-container *ngFor="let item of this._questionHandlerService.getCurrentQuestion().getResponses(); let i = index">
+                    <input [ngClass]="{'isSelected': i==this._questionHandlerService.getCurrentResponseIndex(),
+                    'isCorrect' : i==this._questionHandlerService.getCurrentQuestion().getAnswerIndex() && this._questionHandlerService.getStatus(),
+                    'isIncorrect' : this._questionHandlerService.getStatus() && i==this._questionHandlerService.getCurrentResponseIndex()}" class="button-item" type="button" [value]="item" (click)="this._questionHandlerService.changeCurrentResponseIndex(i)">
                 </ng-container>
             </fieldset>
-            <input [ngClass]="{'isInactive' : currentResponseIndex==null}" type="button" value="Siguiente" class="submit-button" (click)="changesCurrentQuestionIndex()">
+            <input [ngClass]="{'isInactive' : this._questionHandlerService.getCurrentResponseIndex()==null}" type="button" value="Siguiente" class="submit-button" (click)="this._questionHandlerService.executeChanges()">
         </form>
+        
     </main>
 </div>

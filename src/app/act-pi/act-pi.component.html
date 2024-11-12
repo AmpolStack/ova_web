@@ -1,13 +1,12 @@
 <div class="container-all">
-    <ng-container *ngIf="this.QuestionIndex==null">
+    <ng-container *ngIf="this.showQuestion==false">
         <aside>
             <h2>PESCANDO IDEAS</h2>
             <h3 *ngIf="isActive == true">Seleccione un item</h3>
-            <h3>Puntuación: {{score}}</h3>
+            <h3>Puntuación: {{this._questionHandlerService.getScore()}}</h3>
             <button *ngIf="isActive == false" type="button" (click)="Activation()">EMPEZAR</button>
             <div class="container-image" [ngClass]="{'rotation-image' : isActive == true}">
                 <img src="../../assets/images/triangle-strange.png" alt="">
-                <!-- <img src="../../assets/images/fish-cartoon.png" alt=""> -->
             </div>
             <div class="bk-images">
                 <div class="division-bk">
@@ -24,13 +23,48 @@
                 </div>
             </div>
         </aside>
-        <main *ngIf="isActive==true && this.QuestionIndex==null">
-            <ng-container *ngFor="let item of Questions; let i = index">
-            <button [ngClass]="{'isCompleted' : this.score >= (i+1)*100}"  type="button" (click)="ChangesQuestionIndex(i)">{{item.name}}</button>
+        <!-- {{this._questionHandlerService.getCurrentQuestionIndex()}} -->
+        <main *ngIf="isActive==true && this.showQuestion==false">
+            <ng-container *ngFor="let item of this.getQuestionsName(); let i = index">
+            <button [ngClass]="{'isCompleted' : this.isTouched(i)==true}"  type="button" (click)="this._questionHandlerService.changesCurentQuestion(i)" (click)="this.changesShowQuestion(true)">{{item}}</button>
             </ng-container>
         </main>
     </ng-container>
-    <ng-container *ngIf="this.QuestionIndex!=null">
-        <app-question (notifyScore)="addScore($event)" [question]="this.Questions[this.QuestionIndex]"></app-question>
+    <ng-container *ngIf="this.showQuestion==true && this.isActive">
+        <div class="container-all-2">
+            <div class="container-images">
+                    <div class="rock rock-1">
+                        <img src="../../../assets/images/bedrock-1.png" alt="">
+                    </div>
+                    <div class="rock rock-2">
+                        <img src="../../../assets/images/bedrock-2.png" alt="">
+                    </div>
+                    <div class="rock rock-3">
+                        <img src="../../../assets/images/bedrock-3.png" alt="">
+                    </div>
+                    <div class="rock rock-4">
+                        <img src="../../../assets/images/bedrock-4.png" alt="">
+                    </div>
+                    <div class="submarine">
+                        <img src="../../../assets/images/submarine.png" alt="">
+                    </div>
+            </div>
+            <form>
+                <h2>{{this.getQuestionsName()[this._questionHandlerService.getCurrentQuestionIndex()]}}</h2>
+                <legend>
+                    {{this._questionHandlerService.getCurrentQuestion().getQuestion()}}
+                </legend>
+                <ul>
+                    <li *ngFor="let item of this._questionHandlerService.getCurrentQuestion().getResponses(); let i = index">
+                        <button [ngClass]="{'isSelected' : i==this._questionHandlerService.getCurrentResponseIndex(),
+                        'isCorrect' : i==this._questionHandlerService.getCurrentQuestion().getAnswerIndex() && this._questionHandlerService.getStatus(),
+                        'isIncorrect' : this._questionHandlerService.getStatus() && i==this._questionHandlerService.getCurrentResponseIndex()}"
+                        type="button" (click)="this._questionHandlerService.changeCurrentResponseIndex(i)">{{item}}</button>
+                </ul>
+                <input class="submit-button" type="submit" value="SIGUIENTE" (click)="this.onSubmit($event)" (click)="this.touchButton(this._questionHandlerService.getCurrentQuestionIndex())">
+                <img class="bk-image" src="../../../assets/images/background-bottom.png" alt="">
+            </form>
+        </div>
     </ng-container>
+    
 </div>
