@@ -26,7 +26,7 @@
                     'isIncorrect' : this._questionHandlerService.getStatus() && i==this._questionHandlerService.getCurrentResponseIndex()}" class="button-item" type="button" [value]="item" (click)="this._questionHandlerService.changeCurrentResponseIndex(i)">
                 </ng-container>
             </fieldset>
-            <input [ngClass]="{'isInactive' : this._questionHandlerService.getCurrentResponseIndex()==null}" type="button" value="Siguiente" class="submit-button" (click)="this._questionHandlerService.executeChanges()">
+            <input [ngClass]="{'isInactive' : this._questionHandlerService.getCurrentResponseIndex()==null}" type="button" value="Siguiente" class="submit-button" (click)="this._questionHandlerService.executeChanges()" (click)="this.provee(this._questionHandlerService.getCurrentQuestionIndex())" >
         </form>
         
     </main>

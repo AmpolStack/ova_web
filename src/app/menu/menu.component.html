@@ -1,5 +1,8 @@
 <main>
-    <h2>Seleccione el Taller</h2>
+    <button class="question-card" (click)="this.communicationService.startPropertiesAndShows(this.texts)">
+        ?
+    </button>
+    <h2>TALLERES</h2>
     <!-- Calls the component of the workshop cards -->
     <app-card class="card-container" *ngFor="let item of Activitys; let i = index" [Activity]="item" [number]="i+1"></app-card>
 </main>

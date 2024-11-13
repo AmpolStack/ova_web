@@ -27,7 +27,7 @@ aside{
     position: relative;
     text-align: center;
 }
-aside>button{
+aside>button,.winsContainer > button{
     background-color: #6E7FF3;
     color: #fff;
     font-weight: 700;
@@ -40,7 +40,7 @@ aside>button{
 h3,h2,aside>button{
     z-index: 2;
 }
-aside>button:hover, aside>button:focus{
+aside>button:hover, aside>button:focus,.winsContainer > button:hover, .winsContainer > button:focus{
     background-color: #fff;
     color: #6E7FF3;
     transform: scale(0.9);
@@ -434,12 +434,79 @@ ul{
     }
 }
 
+/* TODO: Si no corregí esto fué por pereza la verdad */
 .isIncorrect {
     background-color: #f56f60 !important;
     color: #fff !important;
 }
+.isInactive {
+    background-color: #444 !important;
+    pointer-events: none !important;
+}
+
 
 .isCorrect {
     background-color: #7ebb66 !important;
     color: #fff !important
+}
+
+.winsContainer{
+    /* background-color: #444; */
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    /* padding: 1rem; */
+    justify-content: space-evenly;
+    align-items: center;
+    aspect-ratio: 2/1;
+    overflow: hidden;
+    align-content: center;
+    animation:  TR-translatePosition-2 5s ease-in-out infinite;
+}
+.winsContainer>*{
+    flex: 0 1 20%;
+}
+.winsContainer > button{
+    position: relative;
+    z-index: 1;
+}
+.winsContainer > h3{
+    position: relative;
+    z-index: 1;
+    /* background-color: #444; */
+    color:#6E7FF3;
+    font-weight: 900;
+    font-size: 240%;
+    text-shadow: 0 0 .1rem #222;
+    text-align: center;
+}
+.winsContainer > .chest{
+    position: relative;
+    z-index: 1;
+    max-width: 40%;
+}
+.bk-bottom-image{
+    position: absolute;
+    z-index: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    /* background-color: red; */
+    align-content: center;
+}
+.bk-bottom-image>img{
+    max-width: 100%;
+    height: 100%;
+}
+
+.triangle-2{
+    position: absolute;
+    z-index: 1;
+    rotate: 55deg;
+    animation:  FS-translatePosition 5s ease-in-out infinite;
 }

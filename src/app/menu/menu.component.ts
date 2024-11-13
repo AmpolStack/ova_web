@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { CommunicationService } from '../communication.service';
 
 @Component({
   selector: 'app-menu',
@@ -7,6 +8,7 @@ import { Component, Input } from '@angular/core';
 })
 export class MenuComponent {
 
+  constructor(public communicationService : CommunicationService){}
   //Activity implementation
   //Activity objects contain the properties needed for workshop cards
   public Activitys : Activity[] =[
@@ -15,6 +17,15 @@ export class MenuComponent {
     {Name:'pescando ideas', Description:'¡Bienvenido a “pescando ideas”! Sumérgete en esta aventura donde podrás pescar palabras que te ayudarán a crear frases y conocer diferentes temáticas de nuestra revista “rastros rostros” y así apropiarse del conocimiento de ésta.',UrlLink:'PI', UrlImage:'../../../assets/images/Icono pesca.svg'},
     {Name:'El Rastro del Millón', Description:'¡Bienvenidos a "El Rastro del Millón"! Prepárate para un desafío lleno de conocimientos, donde tu capacidad para identificar y clasificar correctamente diferentes tipos de artículos te llevará a lo más alto. ¿Estás listo para poner a prueba tu habilidad con las citas? ¡Esta es tu oportunidad de demostrar cuánto sabes!',UrlLink:'RDM', UrlImage:'../../../assets/images/Icono idea.svg'},
   ]
+  public texts : string[] = [
+    "Hola bienvenido a la web de 'Buscando el Rastro'.",
+    "Me presento, soy Chiro, soy un investigador novato, y necesitaré de tu ayuda para mejorar mis habilidades",
+    "En este caso estoy investigando a la revistra 'Rastros Rostros', esta parece ser un gran recurso para aprender gran cantidad de temas interesantes",
+    "Sin embargo, no soy capaz de entenderla en su totalidad.",
+    "Así que estaré dando un recorrido a indexes de la revista, acompañame a esta aventura y así aprenderas conmigo sobre la revista 'Rastros Rostros'",
+  ]
+
+  
 
 }
 

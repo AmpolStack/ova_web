@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Question, QuestionHandlerService } from '../question-handler.service';
 import { Router } from '@angular/router';
+import { CommunicationService } from '../communication.service';
 
 @Component({
   selector: 'app-act-reo',
@@ -11,8 +12,9 @@ export class ActReoComponent implements OnInit, OnDestroy {
 
   public  _questionHandlerService : QuestionHandlerService;
   private readonly _routerService : Router;
+  public isInit : boolean = false;
 
-  constructor(questionHandler : QuestionHandlerService, router : Router){
+  constructor(questionHandler : QuestionHandlerService, router : Router, private communicationService : CommunicationService){
     this._routerService = router;
     this._questionHandlerService = questionHandler;
   }
@@ -93,37 +95,37 @@ export class ActReoComponent implements OnInit, OnDestroy {
 
   }
 
-  public isInit : boolean = false;
-  public inStatusChange : boolean = false;
-
-ngOnInit(): void {
   
-  this.FillList();
-  this._questionHandlerService.setDelayTime(1000)
-  this._questionHandlerService.setScoreMultiplier(100);
-}
+  private texts : string[] = [
+    "Felicidades!",
+    "El rigor investigativo es muy importante, y con este taller terminado has podido aprender sobre los origenes de la revista 'Rastros Rostros'",
+    "Así cómo tambien curiosidades de la misma.",
+    "Pero no cantes victoria aún, el siguiente paradero nos espera"
+  ]
 
-ngOnDestroy(): void {
-    console.log("a")
-    this._questionHandlerService.ngOnDestroy();
-}
+  ngOnInit(): void {
+
+    this.FillList();
+    this._questionHandlerService.setDelayTime(1000)
+    this._questionHandlerService.setScoreMultiplier(100);
+  }
+
+  ngOnDestroy(): void {
+      console.log("a")
+      this._questionHandlerService.ngOnDestroy();
+  }
+
   public changeIsInit(){
     this.isInit = true;
   }
-
-  public executeChanges(seconds : number) : void{
-    this._questionHandlerService.defineAnswerValidity();
-    this.inStatusChange = true;
-
-    setTimeout(()=>{
-      this._questionHandlerService.changeCurrentResponseIndex(null);
-      this.inStatusChange = false;
-      this._questionHandlerService.goToNextQuestion();
-    }, seconds)
-
+  public provee(index : number){
+    if(index == this._questionHandlerService.getLenghtQuestions()-1){
+      this.usingWhenEnds();
+    }
   }
-  
-  public redirectWhenEnds(){
-    this._routerService.navigate(['si'])
+
+  private usingWhenEnds(){
+    this.communicationService.startPropertiesAndShows(this.texts, 'TALLER #1 TERMINADO!!');
+    this._routerService.navigate(['home'])
   }
 }

@@ -1,5 +1,5 @@
 <h3>{{Activity?.Name}}</h3>
 <p>{{Activity?.Description}}</p>
 <div class="button-container">
-    <button  routerLink={{Activity?.UrlLink}}>{{number}}</button>
+    <button (click)="this.usingTransition()">{{number}}</button>
 </div>

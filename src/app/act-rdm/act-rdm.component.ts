@@ -1,22 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Question, QuestionHandlerService } from '../question-handler.service';
+import { CommunicationService } from '../communication.service';
 
 @Component({
   selector: 'app-act-rdm',
   templateUrl: './act-rdm.component.html',
   styleUrls: ['./act-rdm.component.css']
 })
-export class ActRdmComponent {
+export class ActRdmComponent implements OnDestroy {
 
   public isInit : boolean = false;
   public readonly _questionHandlerService : QuestionHandlerService;
-  constructor(questionHandler : QuestionHandlerService){
+  constructor(questionHandler : QuestionHandlerService, private communicationService : CommunicationService){
     this._questionHandlerService = questionHandler;
     this. fillQuestionList();
     this._questionHandlerService.setDelayTime(1000);
     this._questionHandlerService.setScoreMultiplier(100);
   }
 
+  private texts : string[] = [
+    "Felicidades camarada!",
+    "Has adquirido conocimientos acerca de cómo clasificar articulos.",
+    "En general, clasificar la información es un aspecto importantisimo para nosotros los investigadores",
+    "Ahora, mi camarada, hasta aquí llega nuestro camino, no hay nada más que te pueda enseñar.",
+    "oh bueno... que tu me puedas enseñar.",
+    "Recuerda que la labor investigativa es lo que nos lleva al exito",
+    "Te invito a visitar la pagina oficial de la revista 'Rastros Rostros'",
+    "Donde podras encontrar toda su base de datos e información importante que puede serte de mucha ayuda",
+    "Hasta luego camarada, mucha suerte!!!"
+  ]
   public fillQuestionList(){
     let questions : Question[] =[
       new Question(
@@ -91,5 +103,18 @@ export class ActRdmComponent {
     this.isInit = true;
   }
 
+  ngOnDestroy(): void {
+      this._questionHandlerService.ngOnDestroy();
+      this.isInit = false;
+  }
+  public provee(index : number){
+    if(index == this._questionHandlerService.getLenghtQuestions()-1){
+      this.usingWhenEnds();
+    }
+  }
+
+  private usingWhenEnds(){
+    this.communicationService.startPropertiesAndShows(this.texts, 'TALLER #4 TERMINADO!!');
+  }
 
 }

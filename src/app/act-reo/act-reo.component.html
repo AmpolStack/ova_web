@@ -16,7 +16,7 @@
                         </ng-container>
                     </fieldset>
                     <div class="button-container">
-                        <input type="button" value="Siguiente" (click)="this._questionHandlerService.executeChanges()" [ngClass]="{'no-click' : this._questionHandlerService.getStatus() || this._questionHandlerService.getCurrentResponseIndex()==null}">
+                        <input type="button" value="Siguiente" (click)="this._questionHandlerService.executeChanges()" (click)="this.provee(this._questionHandlerService.getCurrentQuestionIndex())"   [ngClass]="{'no-click' : this._questionHandlerService.getStatus() || this._questionHandlerService.getCurrentResponseIndex()==null}">
                     </div>
                     
                 </form>

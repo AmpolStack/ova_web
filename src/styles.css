@@ -49,13 +49,19 @@ img {
     margin: auto;
     z-index: 100;
     pointer-events: none;
-    animation: transform 10s ease-in-out forwards;
+    /* animation: transform 10s ease-in-out forwards; */
     touch-action: none
 }
 
 .cuat::before {
     content: "";
     animation: loading 2s steps(4) infinite
+}
+
+.cuat-start{
+    width: 100vw !important;
+    height: 100vh !important;
+    font-size: 10rem !important;
 }
 
 @keyframes spin {
@@ -66,21 +72,18 @@ img {
         transform: rotate(360deg);
     }
 }
-@keyframes transform {
+/* @keyframes transform {
     0%,100% {
         width: 0;
         height: 0;
         font-size: 0;
-
     }
     25%,50%,75% {
         width: 100vw;
         height: 100vh;
         font-size: 10rem;
-
-        /* margin: 0; */
     }
-}
+} */
 @keyframes loading {
     0%, 100% {content:"";}
     25% {content: ".";}

@@ -35,7 +35,21 @@ main{
     aspect-ratio: 2/1.5;
     flex: 0 1 40rem;
 }
+.question-card{
+    background-color: #444;
+    color: #fff;
+    flex: 0 1 10rem;
+    aspect-ratio: 1/1;
+    font-weight: 900;
+    font-size: 3rem;
+    box-shadow: 0 0 .3rem 0 #222;
+    transition: background-color .5s, color .5s;
+}
 
+.question-card:hover{
+    background-color: #fff;
+    color: #444;
+}
 
 @media screen and (max-width:700px){
     .card-container{

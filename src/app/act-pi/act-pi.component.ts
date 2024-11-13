@@ -1,5 +1,6 @@
 import { Component, OnDestroy, Output } from '@angular/core';
 import { Question, QuestionHandlerService } from '../question-handler.service';
+import { CommunicationService } from '../communication.service';
 
 @Component({
   selector: 'app-act-pi',
@@ -10,6 +11,9 @@ export class ActPIComponent implements OnDestroy{
   public isActive : boolean = false;
   public readonly _questionHandlerService : QuestionHandlerService;
   public showQuestion : boolean = false;
+  public isComplete : boolean = false;
+  public counter : number = 0;
+  
   public objects: extendedQuestion[] = [
     {
       question: new Question(
@@ -78,8 +82,14 @@ export class ActPIComponent implements OnDestroy{
       touched : false
     }
   ];
+  private texts : string[] = [
+    "Felicitaciones!", 
+    "Has terminado el taller #3, y has aprendido sobre los temas tratados en la revista 'Rastros Rostros'",
+    "Recuerda que los investigadores cómo yo requieren de conocer las tematicas de sus casos.",
+    "Ahora sin más, vamos a la ultima parada, animos!"
+  ]
 
-  constructor(questionHandler : QuestionHandlerService){
+  constructor(questionHandler : QuestionHandlerService, public communicationService : CommunicationService){
     this._questionHandlerService = questionHandler;
     this.fillQuestionList();
     this._questionHandlerService.setDelayTime(1200);
@@ -94,6 +104,11 @@ export class ActPIComponent implements OnDestroy{
 
   public touchButton(index : number){
     this.objects[index].touched = true;
+    this.counter+=1;
+    if(this.counter>=6){
+      this.isComplete = true;
+      this.trigger();
+    }
   }
 
   public isTouched(index : number){
@@ -115,12 +130,17 @@ export class ActPIComponent implements OnDestroy{
     return tempList;
   }
 
+  public trigger(){
+    this.communicationService.startPropertiesAndShows(this.texts, 'TALLER #3 COMPLETADO!!');
+  }
+
+
   onSubmit(event: Event): void {
     event.preventDefault(); // Evitar que el formulario se envíe si es necesario
     this._questionHandlerService.executeChanges(false);
     setTimeout(() => {
       this.isActive = false;
-    this.showQuestion = false;
+      this.showQuestion = false;
     }, 1200);
   }
 
@@ -131,9 +151,12 @@ export class ActPIComponent implements OnDestroy{
       this.isActive = false;
       this.showQuestion = false;
       this.objects.forEach(x =>{
+
         x.touched = false;
       })
   }
+
+
 }
 
 export interface extendedQuestion{

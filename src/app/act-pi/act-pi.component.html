@@ -1,5 +1,5 @@
 <div class="container-all">
-    <ng-container *ngIf="this.showQuestion==false">
+    <ng-container *ngIf="this.showQuestion==false && this.isComplete==false">
         <aside>
             <h2>PESCANDO IDEAS</h2>
             <h3 *ngIf="isActive == true">Seleccione un item</h3>
@@ -30,7 +30,7 @@
             </ng-container>
         </main>
     </ng-container>
-    <ng-container *ngIf="this.showQuestion==true && this.isActive">
+    <ng-container *ngIf="this.showQuestion==true && this.isActive && this.isComplete==false">
         <div class="container-all-2">
             <div class="container-images">
                     <div class="rock rock-1">
@@ -61,10 +61,25 @@
                         'isIncorrect' : this._questionHandlerService.getStatus() && i==this._questionHandlerService.getCurrentResponseIndex()}"
                         type="button" (click)="this._questionHandlerService.changeCurrentResponseIndex(i)">{{item}}</button>
                 </ul>
-                <input class="submit-button" type="submit" value="SIGUIENTE" (click)="this.onSubmit($event)" (click)="this.touchButton(this._questionHandlerService.getCurrentQuestionIndex())">
+                <input [ngClass]="{'isInactive' : this._questionHandlerService.getCurrentResponseIndex()==null}"  class="submit-button" type="submit" value="SIGUIENTE" (click)="this.onSubmit($event)" (click)="this.touchButton(this._questionHandlerService.getCurrentQuestionIndex())">
                 <img class="bk-image" src="../../../assets/images/background-bottom.png" alt="">
             </form>
         </div>
     </ng-container>
-    
+    <div class="winsContainer" *ngIf="this.isComplete">
+        <div class="bk-bottom-image">
+            <img src="../../assets/images/background-bottom.png" alt="">
+        </div>
+        <div class="triangle-2">
+            <img src="../../assets/images/triangle-strange.png" alt="">
+        </div>
+        <div class="chest"> 
+            <img src="../../assets/images/cofre-calamar.png" alt="">
+        </div>
+        <h3>QUIZZ COMPLETADO!</h3>
+        <button class="submit-button" routerLink="" >VOLVER</button>
+    </div>
 </div>
+<!-- <app-chiro-interlude [title]="'TALLER #1 COMPLETADO'" [textTargets]="this.texts">
+</app-chiro-interlude> -->
+<app-chiro-interlude></app-chiro-interlude>
