@@ -11,7 +11,7 @@ import { CommunicationService } from '../communication.service';
 export class ActRnrComponent{
   public roomLength : number = 8;
   public roomIndex : number = 2;
-  public urlTemplate : string = '../../assets/images/portadas/Portada';
+  public urlTemplate : string = 'assets/images/portadas/Portada';
   public urlExtension : string = '.jpg';
   public message : string = '';
   public isValid : boolean = false;

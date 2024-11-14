@@ -6,20 +6,20 @@
             <h3>Puntuación: {{this._questionHandlerService.getScore()}}</h3>
             <button *ngIf="isActive == false" type="button" (click)="Activation()">EMPEZAR</button>
             <div class="container-image" [ngClass]="{'rotation-image' : isActive == true}">
-                <img src="../../assets/images/triangle-strange.png" alt="">
+                <img src="assets/images/triangle-strange.png" alt="">
             </div>
             <div class="bk-images">
                 <div class="division-bk">
-                    <img class="cofre" src="../../assets/images/tesoro.png" alt="">
-                    <img class="bubble bubble-1" src="../../assets/images/bubble-gif1.gif" alt="">
-                    <img class="bubble bubble-2" src="../../assets/images/bubble-gif1.gif" alt="">
-                    <img class="bubble bubble-3" src="../../assets/images/bubble-gif1.gif" alt="">
-                    <img class="plant plant-1" src="../../assets/images/cfb0cef3-f97b-477a-8ec7-d02f3ae81962.png" alt="">
-                    <img class="plant plant-2" src="../../assets/images/cfb0cef3-f97b-477a-8ec7-d02f3ae81962.png" alt="">
-                    <img class="fish fish-1" src="../../assets/images/fish-cartoon.png" alt="">
-                    <img class="fish fish-2" src="../../assets/images/fish-cartoon.png" alt="">
-                    <img class="fish fish-3" src="../../assets/images/fish-cartoon.png" alt="">
-                    <img src="../../assets/images/chiguiro.svg" alt="" class="chiro">
+                    <img class="cofre" src="assets/images/tesoro.png" alt="">
+                    <img class="bubble bubble-1" src="assets/images/bubble-gif1.gif" alt="">
+                    <img class="bubble bubble-2" src="assets/images/bubble-gif1.gif" alt="">
+                    <img class="bubble bubble-3" src="assets/images/bubble-gif1.gif" alt="">
+                    <img class="plant plant-1" src="assets/images/cfb0cef3-f97b-477a-8ec7-d02f3ae81962.png" alt="">
+                    <img class="plant plant-2" src="assets/images/cfb0cef3-f97b-477a-8ec7-d02f3ae81962.png" alt="">
+                    <img class="fish fish-1" src="assets/images/fish-cartoon.png" alt="">
+                    <img class="fish fish-2" src="assets/images/fish-cartoon.png" alt="">
+                    <img class="fish fish-3" src="assets/images/fish-cartoon.png" alt="">
+                    <img src="assets/images/chiguiro.svg" alt="" class="chiro">
                 </div>
             </div>
         </aside>
@@ -34,19 +34,19 @@
         <div class="container-all-2">
             <div class="container-images">
                     <div class="rock rock-1">
-                        <img src="../../../assets/images/bedrock-1.png" alt="">
+                        <img src="assets/images/bedrock-1.png" alt="">
                     </div>
                     <div class="rock rock-2">
-                        <img src="../../../assets/images/bedrock-2.png" alt="">
+                        <img src="assets/images/bedrock-2.png" alt="">
                     </div>
                     <div class="rock rock-3">
-                        <img src="../../../assets/images/bedrock-3.png" alt="">
+                        <img src="assets/images/bedrock-3.png" alt="">
                     </div>
                     <div class="rock rock-4">
-                        <img src="../../../assets/images/bedrock-4.png" alt="">
+                        <img src="assets/images/bedrock-4.png" alt="">
                     </div>
                     <div class="submarine">
-                        <img src="../../../assets/images/submarine.png" alt="">
+                        <img src="assets/images/submarine.png" alt="">
                     </div>
             </div>
             <form>
@@ -62,7 +62,7 @@
                         type="button" (click)="this._questionHandlerService.changeCurrentResponseIndex(i)">{{item}}</button>
                 </ul>
                 <input [ngClass]="{'isInactive' : this._questionHandlerService.getCurrentResponseIndex()==null}"  class="submit-button" type="submit" value="SIGUIENTE" (click)="this.onSubmit($event)" (click)="this.touchButton(this._questionHandlerService.getCurrentQuestionIndex())">
-                <img class="bk-image" src="../../../assets/images/background-bottom.png" alt="">
+                <img class="bk-image" src="assets/images/background-bottom.png" alt="">
             </form>
         </div>
     </ng-container>

@@ -1,7 +1,7 @@
 <div class="bk-properties" >
     <div class="logo-container" *ngIf="isInit==false">
         <div class="logo-image">
-            <img src="../../assets/images/millonario.svg" alt="">
+            <img src="assets/images/millonario.svg" alt="">
         </div>
         <h2>RASTRO DEL MILLON</h2>
         <button type="button" (click)="Init()">EMPEZAR</button>
@@ -16,7 +16,6 @@
             </div>
         </aside>
         <form>
-            
             <h3>Pregunta {{this._questionHandlerService.getCurrentQuestionIndex()+1}}/{{this._questionHandlerService.getLenghtQuestions()}}</h3>
             <p>{{this._questionHandlerService.getCurrentQuestion().getQuestion()}}</p>
             <fieldset>
