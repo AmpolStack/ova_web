@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class CardComponent {
   @Input() Activity? : Activity;
-  @Input() number? : number;
+  @Input() number : number = 0;
   constructor(public communicationService : CommunicationService,
     private router : Router
   ){};

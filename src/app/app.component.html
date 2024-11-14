@@ -21,7 +21,22 @@
   <router-outlet></router-outlet>
 </div>
 <footer>
-  Developed by {{'@Amapola'}}
+  <div class="autor-container">
+    <p>
+      Ingrid Nathalia Lizcano Angarita
+    </p>
+    <p>
+      Laura Patricia Estupiñán Pérez
+    </p>
+    <p>
+      Julián Adolfo Camacho Herrera
+    </p> 
+  </div>
+  <div class="thanks-container">
+    <p>
+      Imagenes, información y datos tomados de {{'@Ediciones UCC'}} - 2024
+    </p>
+  </div>
 </footer>
 <!-- {{this.comunicationService.getTransitionStatus()}} -->
 <div class="cuat" [ngClass]="{'cuat-start': this.comunicationService.getTransitionStatus()==true}"></div>

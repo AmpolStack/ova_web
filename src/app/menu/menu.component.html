@@ -4,5 +4,7 @@
     </button>
     <h2>TALLERES</h2>
     <!-- Calls the component of the workshop cards -->
-    <app-card class="card-container" *ngFor="let item of Activitys; let i = index" [Activity]="item" [number]="i+1"></app-card>
+    <app-card class="card-container" *ngFor="let item of this.activityHandler.activitysList; let i = index" [Activity]="item" [number]="i+1">
+    </app-card>
+    <h2>Puntuación Global : {{this.activityHandler.getGlobalScore()}}</h2>
 </main>

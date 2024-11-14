@@ -13,7 +13,6 @@ export class QuestionHandlerService implements OnDestroy{
   private scoreMultiplier = 0;
   private inStatusChanges = false;
   private delayTime = 0;
-  private counter : number = 0;
   //RETURNS A CURRENT QUESTION
   public getCurrentQuestion(){
     return this.questionList[this.questionIndex];
@@ -25,7 +24,6 @@ export class QuestionHandlerService implements OnDestroy{
 
   public changesCurentQuestion(index : number){
     this.questionIndex=index;
-    this.counter+=1;
   }
   ngOnDestroy(): void {
       this.questionList = [];
@@ -88,7 +86,6 @@ export class QuestionHandlerService implements OnDestroy{
     if(this.questionIndex >= this.questionLength-1){
       return null;
     }
-    this.counter += 1;
     this.questionIndex = this.questionIndex + 1;
   }
 

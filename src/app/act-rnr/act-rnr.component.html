@@ -1,26 +1,36 @@
 <div class="container-all">
     <aside>
-        <h2>ROOM 1</h2>
+        <h2>ROOM {{this.roomIndex/2}}</h2>
         <div class="aside">
-            <ng-container *ngFor="let item of i; let j = index" >
-                <!-- <div [ngClass]="{'isActive' : this.index>=j+1, 'last' : this.index==j+1}" class="division"></div> -->
-            </ng-container>
-            <h4>1/4</h4>
+            <h4>!Te invitamos a realizar tu propia portada!</h4>
         </div>
         <main class="image-container">
             <div>
-                <img src="../../assets/images/portadas/Portada1.jpg" alt="">
+                <img [src]="this.urlTemplate + (this.roomIndex-1) +  this.urlExtension" alt="">
             </div>
             <div>
-                <img src="../../assets/images/portadas/Portada1.jpg" alt="">
+                <img [src]="this.urlTemplate + (this.roomIndex) +  this.urlExtension" alt="">
             </div>
         </main>
-        <div class="button button-previus">
-            <button>ANTERIOR</button>
+        <div class="button">
+            <button [ngClass]="{'isDisable' : this.roomIndex==2}" (click)="this.changesIndexValue(false)">ANTERIOR</button>
         </div>
-        <div class="button button-next">
-            <button>SIGUIENTE</button>
+        <div class="button">
+            <button [ngClass]="{'isDisable' : this.roomIndex==this.roomLength*2}" (click)="this.changesIndexValue(true)">SIGUIENTE</button>
         </div>
+    <div class="upload-container">
+        <input 
+    type="file" 
+    accept=".jpg,.png,.svg,.webp" 
+    (change)="onFileSelected($event)" 
+    required=""
+    id="file-input"
+    />
+    <p *ngIf="message!=''">{{ message }}</p>
+    <button [ngClass]="{'isDisable' : !this.isValid}" class="send-button" (click)="this.whenEnds()">ENVIAR</button>
+    </div>
     </aside>
+    <!-- /* From Uiverse.io by escannord */  -->
 </div>
+
 <div class="container"></div>

@@ -1,6 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Question, QuestionHandlerService } from '../question-handler.service';
 import { CommunicationService } from '../communication.service';
+import { ActivityHandlerService } from '../activity-handler.service';
 
 @Component({
   selector: 'app-act-rdm',
@@ -11,7 +12,7 @@ export class ActRdmComponent implements OnDestroy {
 
   public isInit : boolean = false;
   public readonly _questionHandlerService : QuestionHandlerService;
-  constructor(questionHandler : QuestionHandlerService, private communicationService : CommunicationService){
+  constructor(questionHandler : QuestionHandlerService, private communicationService : CommunicationService, private activityHandler : ActivityHandlerService ){
     this._questionHandlerService = questionHandler;
     this. fillQuestionList();
     this._questionHandlerService.setDelayTime(1000);
@@ -114,6 +115,7 @@ export class ActRdmComponent implements OnDestroy {
   }
 
   private usingWhenEnds(){
+    this.activityHandler.changeAScore(3,this._questionHandlerService.getScore())
     this.communicationService.startPropertiesAndShows(this.texts, 'TALLER #4 TERMINADO!!');
   }
 

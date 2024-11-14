@@ -1,5 +1,10 @@
 <h3>{{Activity?.Name}}</h3>
 <p>{{Activity?.Description}}</p>
 <div class="button-container">
-    <button (click)="this.usingTransition()">{{number}}</button>
+    <button (click)="this.usingTransition()" *ngIf="!this.Activity?.isBlocked">{{number}} <p>Puntuación {{this.Activity?.score}}</p></button>
+    <div class="isBlocked" *ngIf="this.Activity?.isBlocked">
+        <p>Este taller está bloqueado</p>
+        <p>Terminar el taller #{{this.number-1}} para acceder</p>
+    </div>
 </div>
+

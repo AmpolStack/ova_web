@@ -26,7 +26,7 @@ app-root {
     min-height: 100dvh;
     display: grid;
     grid-template-areas: "header""main""footer";
-    grid-template-rows: 7rem 1fr minmax(1rem,8vh)
+    grid-template-rows: 7rem 1fr min-content;
 }
 
 img {

@@ -1,6 +1,7 @@
 import { Component, OnDestroy, Output } from '@angular/core';
 import { Question, QuestionHandlerService } from '../question-handler.service';
 import { CommunicationService } from '../communication.service';
+import { ActivityHandlerService } from '../activity-handler.service';
 
 @Component({
   selector: 'app-act-pi',
@@ -89,7 +90,7 @@ export class ActPIComponent implements OnDestroy{
     "Ahora sin más, vamos a la ultima parada, animos!"
   ]
 
-  constructor(questionHandler : QuestionHandlerService, public communicationService : CommunicationService){
+  constructor(questionHandler : QuestionHandlerService, public communicationService : CommunicationService, private activityService : ActivityHandlerService){
     this._questionHandlerService = questionHandler;
     this.fillQuestionList();
     this._questionHandlerService.setDelayTime(1200);
@@ -132,6 +133,8 @@ export class ActPIComponent implements OnDestroy{
 
   public trigger(){
     this.communicationService.startPropertiesAndShows(this.texts, 'TALLER #3 COMPLETADO!!');
+    this.activityService.changeAScore(2, this._questionHandlerService.getScore());
+    this.activityService.changeAblock(3, false);
   }
 
 
@@ -151,7 +154,6 @@ export class ActPIComponent implements OnDestroy{
       this.isActive = false;
       this.showQuestion = false;
       this.objects.forEach(x =>{
-
         x.touched = false;
       })
   }

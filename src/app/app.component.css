@@ -63,7 +63,30 @@ footer {
     font-weight: 700;
     align-content: center;
     text-align: center;
-    font-size: 1.3vh
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 3rem 0;
+    /* font-size: 1.3vh */
+}
+footer>*{
+    align-content: center;
+    flex: 1 1 0;
+}
+footer>.autor-container{
+    /* background-color: #ec1557; */
+    /* padding: 2rem 0; */
+
+}
+.autor-container>p,.thanks-container>p{
+    font-size: 1rem;
+}
+.autor-container>p{
+    color: #ffc400;
+    text-wrap: nowrap;
+}
+.thanks-container>p{
+    color: #fff;
 }
 
 .router-container {
@@ -104,6 +127,13 @@ footer {
         max-width: 20%;
         padding: 0
     }
+    .autor-container>p,.thanks-container>p{
+        font-size: .7rem;
+    }
+    footer{
+        flex-direction: column;
+        gap: 2rem;
+    }
 }
 .cuat {
     user-select: none;
@@ -136,58 +166,4 @@ footer {
     width: 100% !important;
     height: 100% !important;
     font-size: 10rem !important;
-}
-
-.square{
-    background-color: #000a;
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-    /* top: 0; */
-    bottom: 0;
-    user-select: none;
-}
-.square>img{
-    position: absolute;
-    bottom: -5%;
-    max-width: 50rem;
-    width: 30%;
-    left: -8%;
-    transform: scaleX(-1);
-    filter: sepia();
-    animation: CH-translatePosition 5s ease-in-out infinite;
-    /* background-color: #000; */
-    /* border-radius: 100%; */
-    /* padding: ; */
-}
-.square > aside{
-    background-color: #333;
-    aspect-ratio: 2/1;
-    height: 35%;
-    align-content: center;
-    padding: 0 10%;
-    cursor: pointer;
-    transition: background-color .1s, transform .1s;
-}
-
-.square > aside:active{
-    background-color: #555;
-    transform: scale(0.9);
-}
-
-.square > aside > p{
-    color: #fff;
-    font-size: 200%;
-    text-align: center;
-}
-@keyframes CH-translatePosition {
-    0% { rotate: 3deg; }
-    25% { rotate: -3deg;}
-    50% { rotate: 3deg; }
-    75% { rotate: -3deg; }
-    100% { rotate: 3deg; }
 }

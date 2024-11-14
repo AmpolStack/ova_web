@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Question, QuestionHandlerService } from '../question-handler.service';
-import { Router } from '@angular/router';
 import { CommunicationService } from '../communication.service';
+import { ActivityHandlerService } from '../activity-handler.service';
 
 @Component({
   selector: 'app-act-reo',
@@ -11,11 +11,9 @@ import { CommunicationService } from '../communication.service';
 export class ActReoComponent implements OnInit, OnDestroy {
 
   public  _questionHandlerService : QuestionHandlerService;
-  private readonly _routerService : Router;
   public isInit : boolean = false;
 
-  constructor(questionHandler : QuestionHandlerService, router : Router, private communicationService : CommunicationService){
-    this._routerService = router;
+  constructor(questionHandler : QuestionHandlerService, private communicationService : CommunicationService, private activityHandler : ActivityHandlerService){
     this._questionHandlerService = questionHandler;
   }
 
@@ -125,7 +123,8 @@ export class ActReoComponent implements OnInit, OnDestroy {
   }
 
   private usingWhenEnds(){
+    this.activityHandler.changeAScore(0, this._questionHandlerService.getScore());
+    this.activityHandler.changeAblock(1, false)
     this.communicationService.startPropertiesAndShows(this.texts, 'TALLER #1 TERMINADO!!');
-    this._routerService.navigate(['home'])
   }
 }
