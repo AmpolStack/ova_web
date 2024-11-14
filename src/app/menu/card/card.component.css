@@ -74,13 +74,22 @@ p {
     color: #ec1557
 }
 
-@media screen and (max-width:800px) {
+@media screen and (max-width:900px) {
     .image-container {
         max-width: 25%
     }
 
     p {
         font-size: 1.8vmin
+    }
+
+    h3 {
+        font-size: 2.5vmin
+    }
+}
+@media screen and (max-width:500px) {
+    p {
+        font-size: 1.5vmin
     }
 
     h3 {

@@ -64,10 +64,10 @@ footer {
     align-content: center;
     text-align: center;
     display: flex;
-    flex-direction: row;
     justify-content: space-evenly;
-    padding: 3rem 0;
-    /* font-size: 1.3vh */
+    flex-direction: column;
+    padding: 1.5rem 0;
+    gap: 1rem;
 }
 footer>*{
     align-content: center;
@@ -123,17 +123,12 @@ footer>.autor-container{
         font-size: 3.3vh
     }
     header>.image-container {
-        max-width: 20%;
+        max-width: 15%;
         padding: 0
     }
+
     .autor-container>p,.thanks-container>p{
         font-size: .7rem;
-    }
-    footer{
-        flex-direction: column;
-        gap: 2rem;
-        padding: 1.5rem 0;
-        gap: 1rem;
     }
 }
 .cuat {

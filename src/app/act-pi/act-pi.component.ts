@@ -24,7 +24,7 @@ export class ActPIComponent implements OnDestroy{
           "Las TIC en la enseñanza de la lengua castellana a niños con discapacidad auditiva. null.",
           "Procesos de enseñanza-aprendizaje en la universidad: perspectiva de los estudiantes. 2016-12-01"
         ],
-        0
+        2
       ),
       name: "APRENDIZAJE",
       touched : false
@@ -32,8 +32,8 @@ export class ActPIComponent implements OnDestroy{
     {
       question: new Question(
         "¿Qué género literario utilizan para aumentar la creatividad según el título del artículo N 2?",
-        ["Poético", "Narrativo", "Dramático"],
-        0
+        ["Narrativo","Poético", "Dramático"],
+        1
       ),
       name: "CREATIVIDAD",
       touched : false
@@ -53,7 +53,7 @@ export class ActPIComponent implements OnDestroy{
       question: new Question(
         "¿Quién es el autor del artículo que está ubicado en la séptima posición?",
         ["Orlando Parra", "Laura Milena Arias", "Gerardo Cardozo Rincón"],
-        0
+        2
       ),
       name: "LECTURA",
       touched : false
