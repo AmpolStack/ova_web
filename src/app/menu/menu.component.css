@@ -20,7 +20,7 @@ main{
     align-content: start;
     gap: 4rem;
     padding: 4rem;
-    background-color:#ffc400;
+    background-color:#fbe498;
     /* background-color: #fac904 !important; */
 }
 
@@ -52,6 +52,7 @@ h3{
     width: 100%;
     text-align: center;
     font-weight: 900;
+    text-wrap: nowrap;
 }
 .question-card:hover{
     background-color: #fff;
@@ -72,7 +73,8 @@ h3{
     }
 
     h3{
-        font-size: 1.4rem;
+        font-size: 1.2rem;
+        
     }
 
 }
