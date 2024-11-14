@@ -85,7 +85,6 @@ main {
 
 main>* {
     border-radius: 8px;
-    border: 2px solid var(--color-secondary);
     box-sizing: border-box;
     box-shadow: 0 0 .4rem 0#44444437;
     transition: all .8s
@@ -128,8 +127,11 @@ aside {
     gap: .3rem
 }
 
+aside>div,main>* {
+    border: 2px solid var(--color-secondary)
+}
+
 aside>div {
-    border: 2px solid var(--color-secondary);
     width: 100%;
     align-content: center
 }

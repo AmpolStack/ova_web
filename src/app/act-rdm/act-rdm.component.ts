@@ -19,17 +19,18 @@ export class ActRdmComponent implements OnDestroy {
     this._questionHandlerService.setScoreMultiplier(100);
   }
 
-  private texts : string[] = [
-    "Felicidades camarada!",
-    "Has adquirido conocimientos acerca de cómo clasificar articulos.",
-    "En general, clasificar la información es un aspecto importantisimo para nosotros los investigadores",
-    "Ahora, mi camarada, hasta aquí llega nuestro camino, no hay nada más que te pueda enseñar.",
-    "oh bueno... que tu me puedas enseñar.",
-    "Recuerda que la labor investigativa es lo que nos lleva al exito",
-    "Te invito a visitar la pagina oficial de la revista 'Rastros Rostros'",
-    "Donde podras encontrar toda su base de datos e información importante que puede serte de mucha ayuda",
-    "Hasta luego camarada, mucha suerte!!!"
-  ]
+  private texts: string[] = [
+    "¡Felicidades, camarada!",
+    "Has adquirido conocimientos sobre cómo clasificar artículos.",
+    "En general, clasificar la información es un aspecto importantísimo para nosotros, los investigadores.",
+    "Ahora, mi camarada, hasta aquí llega nuestro camino. No hay nada más que te pueda enseñar.",
+    "Oh, bueno... que tú me puedas enseñar.",
+    "Recuerda que la labor investigativa es lo que nos lleva al éxito.",
+    "Te invito a visitar la página oficial de la revista 'Rastros y Rostros'.",
+    "Allí podrás encontrar toda su base de datos e información importante que puede serte de gran ayuda.",
+    "Hasta luego, camarada. ¡Mucha suerte!"
+  ];
+  
   public fillQuestionList(){
     let questions : Question[] =[
       new Question(

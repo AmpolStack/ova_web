@@ -239,7 +239,6 @@ p {
     font-weight: 800;
     border-radius: 6px;
     max-width: 20rem;
-    text-shadow: 0 0 .1rem #222;
     font-size: 150%
 }
 
@@ -253,9 +252,12 @@ h4 {
     text-shadow: 0 0 .09rem #222
 }
 
+h2,p {
+    text-shadow: 0 0 .1rem #222
+}
+
 h2 {
     color: var(--color-primary);
-    text-shadow: 0 0 .1rem #222;
     text-wrap: wrap;
     max-width: 50rem
 }

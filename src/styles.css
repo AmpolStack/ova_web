@@ -26,7 +26,7 @@ app-root {
     min-height: 100dvh;
     display: grid;
     grid-template-areas: "header""main""footer";
-    grid-template-rows: 7rem 1fr min-content;
+    grid-template-rows: 7rem 1fr min-content
 }
 
 img {
@@ -49,7 +49,6 @@ img {
     margin: auto;
     z-index: 100;
     pointer-events: none;
-    /* animation: transform 10s ease-in-out forwards; */
     touch-action: none
 }
 
@@ -58,35 +57,30 @@ img {
     animation: loading 2s steps(4) infinite
 }
 
-.cuat-start{
-    width: 100vw !important;
-    height: 100vh !important;
-    font-size: 10rem !important;
+.cuat-start {
+    width: 100vw!important;
+    height: 100vh!important;
+    font-size: 10rem!important
 }
-
 @keyframes spin {
     0% {
         transform: rotate(0deg);
-    }
+   }
     100% {
         transform: rotate(360deg);
-    }
+   }
 }
-/* @keyframes transform {
-    0%,100% {
-        width: 0;
-        height: 0;
-        font-size: 0;
-    }
-    25%,50%,75% {
-        width: 100vw;
-        height: 100vh;
-        font-size: 10rem;
-    }
-} */
 @keyframes loading {
-    0%, 100% {content:"";}
-    25% {content: ".";}
-    50% {content: "..";}
-    75% {content:"..."}
+    0%, 100% {
+       content:"";
+   }
+    25% {
+       content: ".";
+   }
+    50% {
+       content: "..";
+   }
+    75% {
+       content:"..."
+   }
 }

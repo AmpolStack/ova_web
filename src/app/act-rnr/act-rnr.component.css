@@ -1,17 +1,16 @@
-.container-all{
+.container-all {
     --color-primary: #ffc400;
-    --color-secondary :  #ec1557;
+    --color-secondary: #ec1557;
     background-color: var(--color-primary);
-    position: relative;
-    height: 100%;
-    width: 100%;
+    position: relative
 }
-aside{
-    display: block;
+
+aside,h2 {
+    display: block
+}
+
+aside {
     margin: auto;
-    width: 100%;
-    height: 100%;
-    /* background-color: #ffc400; */
     position: relative;
     z-index: 2;
     padding: 4rem 2rem;
@@ -19,21 +18,21 @@ aside{
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     grid-template-rows: minmax(4rem,5rem) 2.6rem min-content max-content 1fr;
-    grid-template-areas: "header header"
-    "slide slide"
-    "content content"
-    "button1 button2"
-    "upload upload";
+    grid-template-areas: "header header""slide slide""content content""button1 button2""upload upload";
     max-width: 50rem;
     align-content: start;
-    justify-content: center;
+    justify-content: center
+}
 
+aside>* {
+    flex: 1 1 0
 }
-aside>*{
-    /* border: 2px solid red; */
-    flex: 1 1 0;
+
+.aside,.container,.container-all {
+    width: 100%;
+    height: 100%
 }
-/* From Uiverse.io by csemszepp */ 
+
 .container {
     position: absolute;
     z-index: 0;
@@ -43,174 +42,132 @@ aside>*{
     bottom: 0;
     margin: auto;
     opacity: 25%;
-    width: 100%;
-    height: 100%;
     --s: 82px;
     --c1: #b2b2b2;
     --c2: #ffffff;
-    --c3: #d9d9d9; 
+    --c3: #d9d9d9;
     --_g: var(--c3) 0 120deg, #0000 0;
-    background: conic-gradient(from -60deg at 50% calc(100% / 3), var(--_g)),
-    conic-gradient(from 120deg at 50% calc(200% / 3), var(--_g)),
-    conic-gradient(
-        from 60deg at calc(200% / 3),
-        var(--c3) 60deg,
-        var(--c2) 0 120deg,
-        #0000 0
-    ),
-    conic-gradient(from 180deg at calc(100% / 3), var(--c1) 60deg, var(--_g)),
-    linear-gradient(
-        90deg,
-        var(--c1) calc(100% / 6),
-        var(--c2) 0 50%,
-        var(--c1) 0 calc(500% / 6),
-        var(--c2) 0
-    );
-    background-size: calc(1.732 * var(--s)) var(--s);
+    background: conic-gradient(from -60deg at 50% calc(100%/3),var(--_g)),conic-gradient(from 120deg at 50% calc(200%/3),var(--_g)),conic-gradient(from 60deg at calc(200%/3),var(--c3) 60deg,var(--c2)0 120deg,#0000 0),conic-gradient(from 180deg at calc(100%/3),var(--c1) 60deg,var(--_g)),linear-gradient(90deg,var(--c1) calc(100%/6),var(--c2)0 50%,var(--c1)0 calc(500%/6),var(--c2)0);
+    background-size: calc(1.732*var(--s)) var(--s)
 }
 
-h2{
+h2 {
     grid-area: header;
-    background-color: var(--color-secondary);
-    /* max-width: 40%; */
-    display: block;
-    /* margin: auto; */
-    align-content: center;
-    text-align: center;
-    /* padding: .5rem 1rem; */
-    color: #fff;
     font-weight: 900;
-    font-size: 300%;
+    font-size: 300%
 }
-.aside{
+
+.aside {
     background-color: #fff;
-    /* max-width: 10rem; */
     border-radius: 4rem;
-    width: 100%;
-    height: 100%;
-    grid-area:slide;
+    grid-area: slide;
     display: flex;
-    position: relative;
-    /* align-items: center; */
+    position: relative
 }
-h4{
+
+#file-input,h4 {
+    color: #444;
+    margin: auto
+}
+
+h2,h4 {
+    align-content: center;
+    text-align: center
+}
+
+h4 {
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    margin: auto;
-    align-content: center;
-    text-align: center;
-    /* background-color: red !important; */
-    color: #444;
-    position: absolute;
+    position: absolute
 }
 
-.image-container{
-    /* background-color: #444; */
+.image-container {
     grid-area: content;
     display: flex;
     align-content: center;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
-}
-.image-container>*{
-    flex: 1 1 0;
-    height: 100%;
-}
-.button{
-    position: relative;
-    z-index: 2;
-    align-content: center;
+    gap: 2rem
 }
 
-.button>button, .send-button{
+.image-container>* {
+    flex: 1 1 0;
+    height: 100%
+}
+
+.button {
+    position: relative;
+    z-index: 2;
+    align-content: center
+}
+
+.button>button,.send-button {
     display: block;
     margin: auto;
     color: var(--color-secondary);
     padding: .6rem 1.2rem;
     font-weight: 800;
     cursor: pointer;
-    transition: background-color .5s, color .5s;
-}
-.button>button:hover, .send-button:hover{
-    background-color: var(--color-secondary);
-    color: #fff;
-}
-img{
-    width: 100%;
-    height: 100%;
+    transition: background-color .5s,color .5s
 }
 
-.isDisable{
-    background-color: #444 !important;
-    color: #fff !important;
-    pointer-events: none;
+.button>button:hover,.send-button:hover,h2 {
+    background-color: var(--color-secondary);
+    color: #fff
 }
- 
+
+aside,img {
+    width: 100%;
+    height: 100%
+}
+
+.isDisable {
+    background-color: #444!important;
+    color: #fff!important;
+    pointer-events: none
+}
+
 .input {
     max-width: 190px;
-    display: none;
-  }
-  
-  /* .labelFile {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 250px;
-    height: 190px;
-    border: 2px dashed #ccc;
-    background-color: #fff;
-    align-items: center;
-    text-align: center;
-    padding: 5px;
-    color: #404040;
-    cursor: pointer;
-    margin: auto;
-    display: flex;
-    gap: 2rem;
-  } */
+    display: none
+}
 
-  .upload-container{
+.upload-container {
     width: 100%;
-    /* background-color: #404040; */
     grid-area: upload;
     text-align: center;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    /* display: flex; */
-  }
-  .upload-container > p{
-    color: #ec1557;
-  }
+    gap: 1rem
+}
 
+.upload-container>p {
+    color: #ec1557
+}
 
 #file-input {
     width: 350px;
     max-width: 100%;
-    color: #444;
     padding: 2px;
     background: #fff;
     border-radius: 10px;
-    border: 1px solid rgba(8, 8, 8, 0.288);
-    display: block;
-    margin: auto;
-  }
-  
-  #file-input::file-selector-button {
+    border: 1px solid rgba(8,8,8,.288);
+    display: block
+}
+
+#file-input::file-selector-button {
     margin-right: 20px;
-    border: none;
+    border: 0;
     background: var(--color-secondary);
     padding: 10px 20px;
     border-radius: 10px;
     color: #fff;
     cursor: pointer;
-    transition: background .2s ease-in-out;
-  }
-  
-  #file-input::file-selector-button:hover {
-    background:#444;
-  }
+    transition: background .2s ease-in-out
+}
 
+#file-input::file-selector-button:hover {
+    background: #444
+}

@@ -83,12 +83,13 @@ export class ActPIComponent implements OnDestroy{
       touched : false
     }
   ];
-  private texts : string[] = [
-    "Felicitaciones!", 
-    "Has terminado el taller #3, y has aprendido sobre los temas tratados en la revista 'Rastros Rostros'",
-    "Recuerda que los investigadores cómo yo requieren de conocer las tematicas de sus casos.",
-    "Ahora sin más, vamos a la ultima parada, animos!"
-  ]
+  private texts: string[] = [
+    "¡Felicitaciones!",
+    "Has terminado el taller #3 y has aprendido sobre los temas tratados en la revista 'Rastros y Rostros'.",
+    "Recuerda que los investigadores, como yo, necesitamos conocer a fondo las temáticas de nuestros casos.",
+    "Ahora, sin más, vamos a la última parada. ¡Ánimos!"
+  ];
+  
 
   constructor(questionHandler : QuestionHandlerService, public communicationService : CommunicationService, private activityService : ActivityHandlerService){
     this._questionHandlerService = questionHandler;

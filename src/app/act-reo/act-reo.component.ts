@@ -94,12 +94,13 @@ export class ActReoComponent implements OnInit, OnDestroy {
   }
 
   
-  private texts : string[] = [
-    "Felicidades!",
-    "El rigor investigativo es muy importante, y con este taller terminado has podido aprender sobre los origenes de la revista 'Rastros Rostros'",
-    "Así cómo tambien curiosidades de la misma.",
-    "Pero no cantes victoria aún, el siguiente paradero nos espera"
-  ]
+  private texts: string[] = [
+    "¡Felicidades!",
+    "El rigor investigativo es muy importante, y con este taller terminado has aprendido sobre los orígenes de la revista 'Rastros y Rostros'.",
+    "Así como también algunas curiosidades sobre ella.",
+    "Pero no cantes victoria aún; el siguiente paradero nos espera."
+  ];
+  
 
   ngOnInit(): void {
 

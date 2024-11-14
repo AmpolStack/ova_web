@@ -7,7 +7,8 @@
     align-content: center;
     justify-content: center;
     align-items: center;
-    /* top: 0; */
+   /* top: 0;
+    */
     bottom: 0;
     user-select: none;
     z-index: 100;
@@ -21,9 +22,6 @@
     transform: scaleX(-1);
     filter: sepia();
     animation: CH-translatePosition 3s ease-in-out infinite;
-    /* background-color: #000; */
-    /* border-radius: 100%; */
-    /* padding: ; */
 }
 .square > aside{
     background-color: #333;
@@ -35,12 +33,10 @@
     max-width: 80%;
     transition: background-color .1s, transform .1s;
 }
-
 .square > aside:active{
     background-color: #555;
     transform: scale(0.9);
 }
-
 .square > aside > p{
     color: #fff;
     font-size: 2.5vh;
@@ -49,20 +45,28 @@
 h3{
     color: #ffc400;
 }
-
-
 @keyframes CH-translatePosition {
-    0% { rotate: 3deg; }
-    25% { rotate: -3deg;}
-    50% { rotate: 3deg; }
-    75% { rotate: -3deg; }
-    100% { rotate: 3deg; }
+    0% {
+        rotate: 3deg;
+   }
+    25% {
+        rotate: -3deg;
+   }
+    50% {
+        rotate: 3deg;
+   }
+    75% {
+        rotate: -3deg;
+   }
+    100% {
+        rotate: 3deg;
+   }
 }
-
 @media screen and (max-width:700px) {
     .square>aside{
-    aspect-ratio: 1/2;
-    width: 90%;
-    height: 40vh;
-    }
+        aspect-ratio: 1/2;
+        width: 90%;
+        height: 40vh;
+   }
 }
+

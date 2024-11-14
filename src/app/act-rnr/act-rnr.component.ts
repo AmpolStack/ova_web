@@ -12,17 +12,17 @@ export class ActRnrComponent{
   public roomLength : number = 8;
   public roomIndex : number = 2;
   public urlTemplate : string = 'assets/images/portadas/Portada';
-  public urlExtension : string = '.jpg';
+  public urlExtension : string = '.webp';
   public message : string = '';
   public isValid : boolean = false;
 
   constructor(public activityHandler : ActivityHandlerService, private communicationHandler : CommunicationService){}
-  private texts : string[] = [
-    "Felicidades camarada!",
-    "Investigador y artista, vaya perfil tan peculiar",
-    "Con esta actividad finiquitada tenemos acceso a la siguiente",
-    "No perdamos tiempo y adentremonos rapidamente al siguiente destino!!!"
-  ]
+  private texts: string[] = [
+    "¡Felicidades, camarada!",
+    "Investigador y artista: vaya perfil tan peculiar.",
+    "Con esta actividad finalizada, tenemos acceso a la siguiente.",
+    "No perdamos tiempo, ¡adentrémonos rápidamente en el siguiente destino!"
+  ];  
   // if increment variable is true, increases the roomIndex value, but if are false, decreases the room index value
   public changesIndexValue(increment : boolean){
     
