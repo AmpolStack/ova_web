@@ -1,8 +1,8 @@
 .square{
     background-color: #000a;
     position: fixed;
-    height: 100vh;
-    width: 100vw;
+    min-height: 100%;
+    min-width: 100%;
     display: flex;
     align-content: center;
     justify-content: center;
@@ -50,6 +50,7 @@ h3{
     color: #ffc400;
 }
 
+
 @keyframes CH-translatePosition {
     0% { rotate: 3deg; }
     25% { rotate: -3deg;}
@@ -58,3 +59,10 @@ h3{
     100% { rotate: 3deg; }
 }
 
+@media screen and (max-width:700px) {
+    .square>aside{
+    aspect-ratio: 1/2;
+    width: 90%;
+    height: 40vh;
+    }
+}

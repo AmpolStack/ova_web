@@ -122,7 +122,6 @@ footer>.autor-container{
     h1 {
         font-size: 3.3vh
     }
-
     header>.image-container {
         max-width: 20%;
         padding: 0
@@ -133,6 +132,8 @@ footer>.autor-container{
     footer{
         flex-direction: column;
         gap: 2rem;
+        padding: 1.5rem 0;
+        gap: 1rem;
     }
 }
 .cuat {
