@@ -110,7 +110,6 @@ export class ActReoComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-      console.log("a")
       this._questionHandlerService.ngOnDestroy();
   }
 

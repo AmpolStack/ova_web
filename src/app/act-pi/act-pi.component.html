@@ -23,7 +23,6 @@
                 </div>
             </div>
         </aside>
-        <!-- {{this._questionHandlerService.getCurrentQuestionIndex()}} -->
         <main *ngIf="isActive==true && this.showQuestion==false">
             <ng-container *ngFor="let item of this.getQuestionsName(); let i = index">
             <button [ngClass]="{'isCompleted' : this.isTouched(i)==true}"  type="button" (click)="this._questionHandlerService.changesCurentQuestion(i)" (click)="this.changesShowQuestion(true)">{{item}}</button>
@@ -66,19 +65,4 @@
             </form>
         </div>
     </ng-container>
-    <!-- <div class="winsContainer" *ngIf="this.isComplete">
-        <div class="bk-bottom-image">
-            <img src="../../assets/images/background-bottom.png" alt="">
-        </div>
-        <div class="triangle-2">
-            <img src="../../assets/images/triangle-strange.png" alt="">
-        </div>
-        <div class="chest"> 
-            <img src="../../assets/images/cofre-calamar.png" alt="">
-        </div>
-        <h3>QUIZZ COMPLETADO!</h3>
-        <button class="submit-button" routerLink="" >VOLVER</button>
-    </div> -->
 </div>
-<!-- <app-chiro-interlude [title]="'TALLER #1 COMPLETADO'" [textTargets]="this.texts">
-</app-chiro-interlude> -->

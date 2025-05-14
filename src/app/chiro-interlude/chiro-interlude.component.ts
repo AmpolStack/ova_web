@@ -15,18 +15,15 @@ export class ChiroInterludeComponent {
 
   public nextTextTarget(){
     if(this.communicationService.getTextList().length==0){
-      console.log("xd")
       return;
     }
     if(this.currentTextIndex < this.communicationService.getTextList().length-1){
       this.currentTextIndex+=1;
     }
     else{
-      console.log("deberia morir aquí la verdad")
       this.communicationService.stopShowsFixed();
       this.currentTextIndex = 0;
       if(this.communicationService.getTitle()!=null){
-        console.log("xd")
         this._routerService.navigate(['home'])
       }
       // this.textTargets=[];
