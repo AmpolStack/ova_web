@@ -91,10 +91,7 @@ export class QuestionHandlerService implements OnDestroy{
 
   //Define if the selected asnwer is the correct answer
   public defineAnswerValidity(): boolean{
-    console.log(this.currentResponseIndex );
-    console.log(this.questionList[this.questionIndex].getAnswerIndex());
     if(this.currentResponseIndex == this.questionList[this.questionIndex].getAnswerIndex()){
-      console.log("eso pasó por aquí, si no se reflejó no es problema mio")
       this.score = this.score + (1 * this.scoreMultiplier);
       return true;
     }

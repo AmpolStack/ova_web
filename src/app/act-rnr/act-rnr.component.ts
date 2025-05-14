@@ -8,7 +8,7 @@ import { CommunicationService } from '../communication.service';
   templateUrl: './act-rnr.component.html',
   styleUrls: ['./act-rnr.component.css']
 })
-export class ActRnrComponent{
+export class ActRnrComponent implements OnDestroy {
   public roomLength : number = 8;
   public roomIndex : number = 2;
   public urlTemplate : string = 'assets/images/portadas/Portada';
@@ -16,7 +16,7 @@ export class ActRnrComponent{
   public message : string = '';
   public isValid : boolean = false;
 
-  constructor(public activityHandler : ActivityHandlerService, private communicationHandler : CommunicationService){}
+  constructor(public activityHandler : ActivityHandlerService, private communicationHandler : CommunicationService, private _questionHandlerService: QuestionHandlerService){}
   private texts: string[] = [
     "¡Felicidades, camarada!",
     "Investigador y artista: vaya perfil tan peculiar.",
@@ -56,5 +56,9 @@ export class ActRnrComponent{
       this.activityHandler.changeAScore(1, 1000);
       this.activityHandler.changeAblock(2, false);
     }
+  }
+
+  ngOnDestroy(): void {
+    this._questionHandlerService.ngOnDestroy();
   }
 }

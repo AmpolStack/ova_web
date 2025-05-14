@@ -150,7 +150,6 @@ export class ActPIComponent implements OnDestroy{
 
 
   ngOnDestroy(): void {
-      console.log("me destruií PI");
       this._questionHandlerService.ngOnDestroy();
       this.isActive = false;
       this.showQuestion = false;
